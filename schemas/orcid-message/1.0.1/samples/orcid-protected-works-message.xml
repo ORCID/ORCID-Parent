@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    =============================================================================
+    Copyright (C) 2011 by ORCID
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.
+    =============================================================================
+
+-->
+<orcid-message xmlns="http://www.orcid.org/ns/orcid"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.orcid.org/ns/orcid orcid-message-1.0.1.xsd">
+    <message-version>1.0.1</message-version>
+    <!-- Error message, if applicable -->
+    <!-- Unable to connect to ORCID, no matching researchers, etc. -->
+    <!-- <error-desc>No researcher found.</error-desc> -->
+    <orcid-profile>
+        <orcid>4444-4444-4444-4446</orcid>
+        <orcid-history>
+            <creation-method>API</creation-method>
+            <completion-date>2012-10-09T15:50:07</completion-date>
+            <submission-date>2012-10-09T15:50:07</submission-date>
+            <!-- In short, researcher has claimed the profile if confirmed=true -->
+            <confirmed>true</confirmed>
+            <!-- The name of the institution that invited the reasearcher to register with ORCID -->
+            <sponsor>
+                <sponsor-name>Brown University Library</sponsor-name>
+                <sponsor-orcid>8888-8888-8888-8880</sponsor-orcid>
+            </sponsor>
+        </orcid-history>
+        <orcid-works scope="update">
+            <orcid-work>
+                <!-- Journal Article (journal-article) -->
+                <!-- Patent (patent) -->
+                <!-- Books (book) -->
+                <!-- Thesis (thesis) -->
+                <!-- Conference Proceedings (conference-proceedings) -->
+                <!-- Generic (generic) -->
+                <!-- Book Chapter (book-chapter) -->
+                <ref-type>book-chapter</ref-type>
+                <isbn>1234567890123</isbn>
+                <electronic-resource-num type="doi">10.5555/12345ABCDE</electronic-resource-num>
+                <publication-date>
+                    <year>2012</year>
+                    <month>10</month>
+                    <day>09</day>
+                </publication-date>
+                <publisher>Brown University Press</publisher>
+                <titles>
+                    <title>Neanderthal Man</title>
+                    <secondary-title>Book of Prehistory</secondary-title>
+                </titles>
+                <pages start="450" end="470" />
+                <contributors>
+                    <authors>
+                        <author>
+                            <orcid>4444-4444-4444-4446</orcid>
+                            <given-names>Josiah Stinkney</given-names>
+                            <family-name>Carberry</family-name>
+                            <vocative-name>Prof. Carberry</vocative-name>
+                            <credit-name>Josiah Stinkney Carberry</credit-name>
+                            <other-names>
+                                <other-name>Josiah S Carberry</other-name>
+                                <other-name>Josiah Carberry</other-name>
+                            </other-names>
+                        </author>
+                    </authors>
+                    <secondary-authors>
+                        <author>
+                            <orcid>5555-5555-5555-555X</orcid>
+                            <given-names>John William</given-names>
+                            <vocative-name>John Spaeth</vocative-name>
+                            <credit-name>John W. Spaeth</credit-name>
+                            <other-names>
+                                <other-name>J W Spaeth</other-name>
+                            </other-names>
+                        </author>
+                        <author>
+                            <credit-name>Paul Di Filippo</credit-name>
+                        </author>
+                    </secondary-authors>
+                </contributors>
+            </orcid-work>
+            <orcid-work>
+                <!-- Book -->
+                <ref-type>book</ref-type>
+                <isbn>3210987654321</isbn>
+                <electronic-resource-num type="doi">10.5555/12345FGHIJ</electronic-resource-num>
+                <publication-date>
+                    <year>1934</year>
+                    <month>10</month>
+                    <day>09</day>
+                </publication-date>
+                <publisher>Brown University Press</publisher>
+                <titles>
+                    <title>Bilocation</title>
+                    <secondary-title>Being in more than one place at a time</secondary-title>
+                </titles>
+                <pages start="1" end="350" />
+                <related-urls>
+                    <url>http://en.wikipedia.org/wiki/Bilocation</url>
+                    <url>http://en.wikipedia.org/wiki/List_of_Ig_Nobel_Prize_winners</url>
+                </related-urls>
+                <contributors>
+                    <authors>
+                        <author>
+                            <orcid>4444-4444-4444-4446</orcid>
+                            <given-names>Josiah Stinkney</given-names>
+                            <family-name>Carberry</family-name>
+                            <vocative-name>Prof. Carberry</vocative-name>
+                            <credit-name>Josiah Stinkney Carberry</credit-name>
+                            <other-names>
+                                <other-name>Josiah S Carberry</other-name>
+                                <other-name>Josiah Carberry</other-name>
+                            </other-names>
+                        </author>
+                    </authors>
+                </contributors>
+            </orcid-work>
+            <orcid-work>
+                <!-- Journal article -->
+                <ref-type>journal-article</ref-type>
+                <issn>55555555</issn>
+                <electronic-resource-num type="doi">10.5555/12345KLMNO</electronic-resource-num>
+                <electronic-resource-num type="pmid">55555</electronic-resource-num>
+                <accession-num type="genbank">55555555555555</accession-num>
+                <publication-date>
+                    <year>1973</year>
+                    <month>06</month>
+                    <day>02</day>
+                </publication-date>
+                <cover-date>1973-06</cover-date>
+                <publisher>Brown University Press</publisher>
+                <titles>
+                    <title>Chromosome 5a55.5 microdeletions comprising AB555 and CD5555 are associated with bilocation ability</title>
+                    <secondary-title>Genetics Journal</secondary-title>
+                </titles>
+                <pages start="45" end="56" />
+                <volume>5</volume>
+                <issue-number>2</issue-number>
+                <contributors>
+                    <authors>
+                        <author>
+                            <orcid>4444-4444-4444-4446</orcid>
+                            <given-names>Josiah Stinkney</given-names>
+                            <family-name>Carberry</family-name>
+                            <vocative-name>Prof. Carberry</vocative-name>
+                            <credit-name>Josiah Stinkney Carberry</credit-name>
+                            <other-names>
+                                <other-name>Josiah S Carberry</other-name>
+                                <other-name>Josiah Carberry</other-name>
+                            </other-names>
+                        </author>
+                        <author>
+                            <credit-name>Pflug RR Ackerstaff VB</credit-name>
+                        </author>
+                    </authors>
+                </contributors>
+            </orcid-work>
+        </orcid-works>
+    </orcid-profile>
+</orcid-message>

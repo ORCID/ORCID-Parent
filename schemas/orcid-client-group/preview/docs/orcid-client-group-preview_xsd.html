@@ -1,0 +1,2709 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Schema documentation for </title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript">
+         <!--
+        var propertiesBoxes= new Array('properties_orcid-client-group-preview.xsd', 
+				'properties_orcid-client-group', 
+				'properties_group-orcid', 
+				'properties_group-name', 
+				'properties_email', 
+				'properties_orcid-client', 
+				'properties_display-name', 
+				'properties_website', 
+				'properties_short-description', 
+				'properties_redirect-uris', 
+				'properties_redirect-uri', 
+				'properties_client-id', 
+				'properties_client-secret');
+
+        var facetsBoxes= new Array('facets_group-orcid', 
+				'facets_group-name', 
+				'facets_email', 
+				'facets_display-name', 
+				'facets_short-description', 
+				'facets_client-id', 
+				'facets_client-secret', 
+				'facets_orcid', 
+				'facets_short-text', 
+				'facets_http___www.orcid.org_ns_orcid_email');
+
+        var usedByBoxes= new Array('usedBy_group-orcid', 
+				'usedBy_group-name', 
+				'usedBy_email', 
+				'usedBy_orcid-client', 
+				'usedBy_display-name', 
+				'usedBy_website', 
+				'usedBy_short-description', 
+				'usedBy_redirect-uris', 
+				'usedBy_redirect-uri', 
+				'usedBy_client-id', 
+				'usedBy_client-secret', 
+				'usedBy_orcid', 
+				'usedBy_short-text', 
+				'usedBy_http___www.orcid.org_ns_orcid_email');
+
+        var sourceBoxes= new Array('source_orcid-client-group', 
+				'source_group-orcid', 
+				'source_group-name', 
+				'source_email', 
+				'source_orcid-client', 
+				'source_display-name', 
+				'source_website', 
+				'source_short-description', 
+				'source_redirect-uris', 
+				'source_redirect-uri', 
+				'source_client-id', 
+				'source_client-secret', 
+				'source_orcid', 
+				'source_short-text', 
+				'source_http___www.orcid.org_ns_orcid_email');
+
+        var instanceBoxes= new Array('instance_orcid-client-group', 
+				'instance_orcid-client', 
+				'instance_redirect-uris');
+
+        var diagramBoxes= new Array('diagram_orcid-client-group', 
+				'diagram_group-orcid', 
+				'diagram_group-name', 
+				'diagram_email', 
+				'diagram_orcid-client', 
+				'diagram_display-name', 
+				'diagram_website', 
+				'diagram_short-description', 
+				'diagram_redirect-uris', 
+				'diagram_redirect-uri', 
+				'diagram_client-id', 
+				'diagram_client-secret', 
+				'diagram_orcid', 
+				'diagram_short-text', 
+				'diagram_http___www.orcid.org_ns_orcid_email');
+
+        var annotationBoxes= new Array('annotations_orcid-client-group-preview.xsd', 
+				'annotations_orcid-client-group', 
+				'annotations_group-orcid', 
+				'annotations_group-name', 
+				'annotations_email', 
+				'annotations_display-name', 
+				'annotations_website', 
+				'annotations_short-description', 
+				'annotations_redirect-uris', 
+				'annotations_client-id', 
+				'annotations_client-secret');
+
+        
+        
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    --></script></head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft"></td>
+               <td class="rt_lineTop"></td>
+               <td class="rt_cornerTopRight"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft"></td>
+               <td class="rt_content">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked"
+                                     onclick="switchStateForAll(this, annotationBoxes);"
+                                     class="control" /></span><span class="globalControlName">Annotations</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked"
+                                     onclick="switchStateForAll(this, diagramBoxes);"
+                                     class="control" /></span><span class="globalControlName">Diagrams</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked"
+                                     onclick="switchStateForAll(this, facetsBoxes);"
+                                     class="control" /></span><span class="globalControlName">Facets </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked"
+                                     onclick="switchStateForAll(this, instanceBoxes);"
+                                     class="control" /></span><span class="globalControlName">Instances</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked"
+                                     onclick="switchStateForAll(this, propertiesBoxes);"
+                                     class="control" /></span><span class="globalControlName">Properties </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked"
+                                     onclick="switchStateForAll(this, sourceBoxes);"
+                                     class="control" /></span><span class="globalControlName">Source</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked"
+                                     onclick="switchStateForAll(this, usedByBoxes);"
+                                     class="control" /></span><span class="globalControlName">Used by </span></td>
+                     </tr>
+                  </table>
+                  <div align="right"><span><input type="button"
+                               onclick="getElementObject('global_controls').style.display = 'none';"
+                               value="Close" /></span></div>
+               </td>
+               <td class="rt_lineRight"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft"></td>
+               <td class="rt_lineBottom"></td>
+               <td class="rt_cornerBottomRight"></td>
+            </tr>
+         </table>
+      </div><a id="orcid-client-group-preview.xsd"></a><div class="componentTitle">Main schema <span class="qname">orcid-client-group-preview.xsd</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.orcid.org/ns/orcid</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_orcid-client-group-preview.xsd" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('annotations_orcid-client-group-preview.xsd');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_orcid-client-group-preview.xsd" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                        class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">=============================================================================</span><span class="tI">
+</span><span class="tT">Copyright (C) 2011-12 by ORCID Permission is hereby granted, free of charge, to any person</span><span class="tI">
+</span><span class="tT">obtaining a copy of this software and associated documentation files (the "Software"), to deal</span><span class="tI">
+</span><span class="tT">in the Software without restriction, including without limitation the rights to use, copy,</span><span class="tI">
+</span><span class="tT">modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to</span><span class="tI">
+</span><span class="tT">permit persons to whom the Software is furnished to do so, subject to the following</span><span class="tI">
+</span><span class="tT">conditions: The above copyright notice and this permission notice shall be included in all</span><span class="tI">
+</span><span class="tT">copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT</span><span class="tI">
+</span><span class="tT">WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF</span><span class="tI">
+</span><span class="tT">MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span><span class="tI">
+</span><span class="tT">AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN</span><span class="tI">
+</span><span class="tT">AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE</span><span class="tI">
+</span><span class="tT">SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</span><span class="tI">
+</span><span class="tT">=============================================================================</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                        class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">This schema describes the format used to define creation of ORCID clients for</span><span class="tI">
+</span><span class="tT">OAuth2. The top level element is orcid-client-group.</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_orcid-client-group-preview.xsd" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('properties_orcid-client-group-preview.xsd');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_orcid-client-group-preview.xsd" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn">attribute form default:
+                                       
+                                    </td>
+                                    <td><b>unqualified</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">element form default:
+                                       
+                                    </td>
+                                    <td><b>qualified</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="orcid-client-group"></a><div class="componentTitle">Element <span class="qname">orcid:orcid-client-group</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.orcid.org/ns/orcid</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_orcid-client-group" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('annotations_orcid-client-group');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_orcid-client-group" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                        class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">A group of OAuth2 clients to be created, or have been created.</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_orcid-client-group" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('diagram_orcid-client-group');"
+                                     class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_orcid-client-group" style="display:block"><img alt="Diagram" border="0"
+                                   src="img/orcid-client-group-preview_xsd_Element_orcid_orcid-client-group.jpeg"
+                                   usemap="#orcid-client-group-preview_xsd_Element_orcid_orcid-client-group" /><map name="orcid-client-group-preview_xsd_Element_orcid_orcid-client-group"
+                                   id="orcid-client-group-preview_xsd_Element_orcid_orcid-client-group">
+                                 <area alt="orcid-client-group-preview_xsd.tmp#group-orcid"
+                                       href="orcid-client-group-preview_xsd.html#group-orcid"
+                                       coords="255,2,369,46" />
+                                 <area alt="orcid-client-group-preview_xsd.tmp#group-name"
+                                       href="orcid-client-group-preview_xsd.html#group-name"
+                                       coords="255,101,392,145" />
+                                 <area alt="orcid-client-group-preview_xsd.tmp#email"
+                                       href="orcid-client-group-preview_xsd.html#email"
+                                       coords="255,186,369,230" />
+                                 <area alt="orcid-client-group-preview_xsd.tmp#orcid-client"
+                                       href="orcid-client-group-preview_xsd.html#orcid-client"
+                                       coords="255,285,366,310" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_orcid-client-group" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('properties_orcid-client-group');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_orcid-client-group" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn">content:
+                                       
+                                    </td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b></td>
+                        <td><b><a href="orcid-client-group-preview_xsd.html#group-orcid" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:group-orcid{0,1}</a></b> , <b><a href="orcid-client-group-preview_xsd.html#group-name" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:group-name</a></b> , <b><a href="orcid-client-group-preview_xsd.html#email" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:email</a></b> , <b><a href="orcid-client-group-preview_xsd.html#orcid-client" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:orcid-client+</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="orcid-client-group-preview_xsd.html#email" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:email</a></b>, <b><a href="orcid-client-group-preview_xsd.html#group-name" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:group-name</a></b>, <b><a href="orcid-client-group-preview_xsd.html#group-orcid" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:group-orcid</a></b>, <b><a href="orcid-client-group-preview_xsd.html#orcid-client" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:orcid-client</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_orcid-client-group" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('instance_orcid-client-group');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_orcid-client-group" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                     class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;orcid:orcid-client-group</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;orcid:group-orcid</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/orcid:group-orcid&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;orcid:group-name</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/orcid:group-name&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;orcid:email</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/orcid:email&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;orcid:orcid-client</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,unbounded}</span><span class="tEl">&lt;/orcid:orcid-client&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/orcid:orcid-client-group&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_orcid-client-group" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('source_orcid-client-group');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_orcid-client-group" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                     class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"orcid-client-group"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">A group of OAuth2 clients to be created, or have been created.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"orcid:group-orcid"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"orcid:group-name"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"orcid:email"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"orcid:orcid-client"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="group-orcid"></a><div class="componentTitle">Element <span class="qname">orcid:group-orcid</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.orcid.org/ns/orcid</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_group-orcid" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('annotations_group-orcid');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_group-orcid" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                        class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">The overall ORCID identifier for the group of clients. If this is ommitted then a new group of clients will be created.</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_group-orcid" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('diagram_group-orcid');"
+                                     class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_group-orcid" style="display:block"><img alt="Diagram" border="0"
+                                   src="img/orcid-client-group-preview_xsd_Element_orcid_group-orcid.jpeg"
+                                   usemap="#orcid-client-group-preview_xsd_Element_orcid_group-orcid" /><map name="orcid-client-group-preview_xsd_Element_orcid_group-orcid"
+                                   id="orcid-client-group-preview_xsd_Element_orcid_group-orcid">
+                                 <area alt="orcid-client-group-preview_xsd.tmp#orcid"
+                                       href="orcid-client-group-preview_xsd.html#orcid"
+                                       coords="162,9,268,35" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="orcid-client-group-preview_xsd.html#orcid" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:orcid</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_group-orcid" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('properties_group-orcid');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_group-orcid" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn">content:
+                                       
+                                    </td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_group-orcid" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('facets_group-orcid');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_group-orcid" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">pattern</td>
+                                    <td width="30%"><b>(\d{4}-){3,}\d{3}[\dX]</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_group-orcid" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('usedBy_group-orcid');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_group-orcid" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="orcid-client-group-preview_xsd.html#orcid-client-group"
+                                             target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:orcid-client-group</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_group-orcid" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('source_group-orcid');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_group-orcid" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                     class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"group-orcid"</span><span class="tAN"> type=</span><span class="tAV">"orcid:orcid"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The overall ORCID identifier for the group of clients. If this is ommitted then a new group of clients will be created.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="group-name"></a><div class="componentTitle">Element <span class="qname">orcid:group-name</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.orcid.org/ns/orcid</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_group-name" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('annotations_group-name');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_group-name" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                        class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">A decriptive name for the group of clients.</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_group-name" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('diagram_group-name');"
+                                     class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_group-name" style="display:block"><img alt="Diagram" border="0"
+                                   src="img/orcid-client-group-preview_xsd_Element_orcid_group-name.jpeg"
+                                   usemap="#orcid-client-group-preview_xsd_Element_orcid_group-name" /><map name="orcid-client-group-preview_xsd_Element_orcid_group-name"
+                                   id="orcid-client-group-preview_xsd_Element_orcid_group-name">
+                                 <area alt="orcid-client-group-preview_xsd.tmp#short-text"
+                                       href="orcid-client-group-preview_xsd.html#short-text"
+                                       coords="185,9,314,35" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="orcid-client-group-preview_xsd.html#short-text" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:short-text</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_group-name" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('properties_group-name');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_group-name" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn">content:
+                                       
+                                    </td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_group-name" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('facets_group-name');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_group-name" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">minLength</td>
+                                    <td width="30%"><b>3</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">maxLength</td>
+                                    <td width="30%"><b>300</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_group-name" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('usedBy_group-name');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_group-name" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="orcid-client-group-preview_xsd.html#orcid-client-group"
+                                             target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:orcid-client-group</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_group-name" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('source_group-name');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_group-name" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                     class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"group-name"</span><span class="tAN"> type=</span><span class="tAV">"orcid:short-text"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">A decriptive name for the group of clients.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="email"></a><div class="componentTitle">Element <span class="qname">orcid:email</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.orcid.org/ns/orcid</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_email" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('annotations_email');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_email" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                        class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">A contact email for the group of clients. This email will be contact in the event of any issues relating to the clients.</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_email" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('diagram_email');"
+                                     class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_email" style="display:block"><img alt="Diagram" border="0"
+                                   src="img/orcid-client-group-preview_xsd_Element_orcid_email.jpeg"
+                                   usemap="#orcid-client-group-preview_xsd_Element_orcid_email" /><map name="orcid-client-group-preview_xsd_Element_orcid_email"
+                                   id="orcid-client-group-preview_xsd_Element_orcid_email">
+                                 <area alt="orcid-client-group-preview_xsd.tmp#http___www.orcid.org_ns_orcid_email"
+                                       href="orcid-client-group-preview_xsd.html#http___www.orcid.org_ns_orcid_email"
+                                       coords="162,9,268,35" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="orcid-client-group-preview_xsd.html#http___www.orcid.org_ns_orcid_email"
+                                 target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:email</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_email" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('properties_email');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_email" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn">content:
+                                       
+                                    </td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_email" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('facets_email');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_email" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">pattern</td>
+                                    <td width="30%"><b>[^@]+@[^\.]+\..+</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_email" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('usedBy_email');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_email" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="orcid-client-group-preview_xsd.html#orcid-client-group"
+                                             target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:orcid-client-group</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_email" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('source_email');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_email" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                     class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"email"</span><span class="tAN"> type=</span><span class="tAV">"orcid:email"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">A contact email for the group of clients. This email will be contact in the event of any issues relating to the clients.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="orcid-client"></a><div class="componentTitle">Element <span class="qname">orcid:orcid-client</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.orcid.org/ns/orcid</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_orcid-client" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('diagram_orcid-client');"
+                                     class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_orcid-client" style="display:block"><img alt="Diagram" border="0"
+                                   src="img/orcid-client-group-preview_xsd_Element_orcid_orcid-client.jpeg"
+                                   usemap="#orcid-client-group-preview_xsd_Element_orcid_orcid-client" /><map name="orcid-client-group-preview_xsd_Element_orcid_orcid-client"
+                                   id="orcid-client-group-preview_xsd_Element_orcid_orcid-client">
+                                 <area alt="orcid-client-group-preview_xsd.tmp#display-name"
+                                       href="orcid-client-group-preview_xsd.html#display-name"
+                                       coords="183,2,320,46" />
+                                 <area alt="orcid-client-group-preview_xsd.tmp#website"
+                                       href="orcid-client-group-preview_xsd.html#website"
+                                       coords="183,101,295,145" />
+                                 <area alt="orcid-client-group-preview_xsd.tmp#short-description"
+                                       href="orcid-client-group-preview_xsd.html#short-description"
+                                       coords="183,200,323,244" />
+                                 <area alt="orcid-client-group-preview_xsd.tmp#redirect-uris"
+                                       href="orcid-client-group-preview_xsd.html#redirect-uris"
+                                       coords="183,299,300,324" />
+                                 <area alt="orcid-client-group-preview_xsd.tmp#client-id"
+                                       href="orcid-client-group-preview_xsd.html#client-id"
+                                       coords="183,379,297,423" />
+                                 <area alt="orcid-client-group-preview_xsd.tmp#client-secret"
+                                       href="orcid-client-group-preview_xsd.html#client-secret"
+                                       coords="183,492,320,536" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_orcid-client" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('properties_orcid-client');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_orcid-client" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn">content:
+                                       
+                                    </td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_orcid-client" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('usedBy_orcid-client');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_orcid-client" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="orcid-client-group-preview_xsd.html#orcid-client-group"
+                                             target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:orcid-client-group</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b></td>
+                        <td><b><a href="orcid-client-group-preview_xsd.html#display-name" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:display-name</a></b> , <b><a href="orcid-client-group-preview_xsd.html#website" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:website</a></b> , <b><a href="orcid-client-group-preview_xsd.html#short-description" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:short-description</a></b> , <b><a href="orcid-client-group-preview_xsd.html#redirect-uris" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:redirect-uris</a></b> , <b><a href="orcid-client-group-preview_xsd.html#client-id" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:client-id{0,1}</a></b> , <b><a href="orcid-client-group-preview_xsd.html#client-secret" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:client-secret{0,1}</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="orcid-client-group-preview_xsd.html#client-id" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:client-id</a></b>, <b><a href="orcid-client-group-preview_xsd.html#client-secret" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:client-secret</a></b>, <b><a href="orcid-client-group-preview_xsd.html#display-name" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:display-name</a></b>, <b><a href="orcid-client-group-preview_xsd.html#redirect-uris" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:redirect-uris</a></b>, <b><a href="orcid-client-group-preview_xsd.html#short-description" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:short-description</a></b>, <b><a href="orcid-client-group-preview_xsd.html#website" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:website</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_orcid-client" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('instance_orcid-client');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_orcid-client" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                     class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;orcid:orcid-client</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;orcid:display-name</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/orcid:display-name&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;orcid:website</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/orcid:website&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;orcid:short-description</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/orcid:short-description&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;orcid:redirect-uris</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/orcid:redirect-uris&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;orcid:client-id</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/orcid:client-id&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;orcid:client-secret</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/orcid:client-secret&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/orcid:orcid-client&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_orcid-client" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('source_orcid-client');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_orcid-client" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                     class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"orcid-client"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"orcid:display-name"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"orcid:website"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"orcid:short-description"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"orcid:redirect-uris"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"orcid:client-id"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"orcid:client-secret"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="display-name"></a><div class="componentTitle">Element <span class="qname">orcid:display-name</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.orcid.org/ns/orcid</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_display-name" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('annotations_display-name');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_display-name" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                        class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">The display name of the client. This will be shown to the user during OAuth2 authorization.</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_display-name" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('diagram_display-name');"
+                                     class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_display-name" style="display:block"><img alt="Diagram" border="0"
+                                   src="img/orcid-client-group-preview_xsd_Element_orcid_display-name.jpeg"
+                                   usemap="#orcid-client-group-preview_xsd_Element_orcid_display-name" /><map name="orcid-client-group-preview_xsd_Element_orcid_display-name"
+                                   id="orcid-client-group-preview_xsd_Element_orcid_display-name">
+                                 <area alt="orcid-client-group-preview_xsd.tmp#short-text"
+                                       href="orcid-client-group-preview_xsd.html#short-text"
+                                       coords="185,9,314,35" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="orcid-client-group-preview_xsd.html#short-text" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:short-text</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_display-name" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('properties_display-name');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_display-name" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn">content:
+                                       
+                                    </td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_display-name" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('facets_display-name');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_display-name" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">minLength</td>
+                                    <td width="30%"><b>3</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">maxLength</td>
+                                    <td width="30%"><b>300</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_display-name" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('usedBy_display-name');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_display-name" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="orcid-client-group-preview_xsd.html#orcid-client" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:orcid-client</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_display-name" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('source_display-name');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_display-name" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                     class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"display-name"</span><span class="tAN"> type=</span><span class="tAV">"orcid:short-text"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The display name of the client. This will be shown to the user during OAuth2 authorization.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="website"></a><div class="componentTitle">Element <span class="qname">orcid:website</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.orcid.org/ns/orcid</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_website" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('annotations_website');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_website" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                        class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">The address of the web user interface of the client system. The user will be</span><span class="tI">
+</span><span class="tT">able to navigate to this address during OAuth2 authorization, if they wish to do</span><span class="tI">
+</span><span class="tT">so.</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_website" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('diagram_website');"
+                                     class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_website" style="display:block"><img alt="Diagram" border="0"
+                                   src="img/orcid-client-group-preview_xsd_Element_orcid_website.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:anyURI</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_website" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('properties_website');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_website" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn">content:
+                                       
+                                    </td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_website" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('usedBy_website');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_website" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="orcid-client-group-preview_xsd.html#orcid-client" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:orcid-client</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_website" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('source_website');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_website" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                     class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"website"</span><span class="tAN"> type=</span><span class="tAV">"xs:anyURI"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The address of the web user interface of the client system. The user will be able to navigate to this address during OAuth2 authorization, if they wish to do so.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="short-description"></a><div class="componentTitle">Element <span class="qname">orcid:short-description</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.orcid.org/ns/orcid</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_short-description" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('annotations_short-description');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_short-description" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                        class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">A short description of the client system. This will be shown to the user</span><span class="tI">
+</span><span class="tT">during OAuth2 authorization.</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_short-description" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('diagram_short-description');"
+                                     class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_short-description" style="display:block"><img alt="Diagram" border="0"
+                                   src="img/orcid-client-group-preview_xsd_Element_orcid_short-description.jpeg"
+                                   usemap="#orcid-client-group-preview_xsd_Element_orcid_short-description" /><map name="orcid-client-group-preview_xsd_Element_orcid_short-description"
+                                   id="orcid-client-group-preview_xsd_Element_orcid_short-description">
+                                 <area alt="orcid-client-group-preview_xsd.tmp#short-text"
+                                       href="orcid-client-group-preview_xsd.html#short-text"
+                                       coords="185,9,314,35" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="orcid-client-group-preview_xsd.html#short-text" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:short-text</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_short-description" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('properties_short-description');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_short-description" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn">content:
+                                       
+                                    </td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_short-description" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('facets_short-description');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_short-description" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">minLength</td>
+                                    <td width="30%"><b>3</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">maxLength</td>
+                                    <td width="30%"><b>300</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_short-description" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('usedBy_short-description');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_short-description" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="orcid-client-group-preview_xsd.html#orcid-client" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:orcid-client</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_short-description" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('source_short-description');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_short-description" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                     class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"short-description"</span><span class="tAN"> type=</span><span class="tAV">"orcid:short-text"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">A short description of the client system. This will be shown to the user during OAuth2 authorization.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="redirect-uris"></a><div class="componentTitle">Element <span class="qname">orcid:redirect-uris</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.orcid.org/ns/orcid</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_redirect-uris" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('annotations_redirect-uris');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_redirect-uris" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                        class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">The list of redirect_uris that the client is permitted to use during OAuth2</span><span class="tI">
+</span><span class="tT">authorization.</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_redirect-uris" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('diagram_redirect-uris');"
+                                     class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_redirect-uris" style="display:block"><img alt="Diagram" border="0"
+                                   src="img/orcid-client-group-preview_xsd_Element_orcid_redirect-uris.jpeg"
+                                   usemap="#orcid-client-group-preview_xsd_Element_orcid_redirect-uris" /><map name="orcid-client-group-preview_xsd_Element_orcid_redirect-uris"
+                                   id="orcid-client-group-preview_xsd_Element_orcid_redirect-uris">
+                                 <area alt="orcid-client-group-preview_xsd.tmp#redirect-uri"
+                                       href="orcid-client-group-preview_xsd.html#redirect-uri"
+                                       coords="229,2,341,46" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_redirect-uris" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('properties_redirect-uris');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_redirect-uris" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn">content:
+                                       
+                                    </td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_redirect-uris" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('usedBy_redirect-uris');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_redirect-uris" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="orcid-client-group-preview_xsd.html#orcid-client" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:orcid-client</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b></td>
+                        <td><b><a href="orcid-client-group-preview_xsd.html#redirect-uri" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:redirect-uri+</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="orcid-client-group-preview_xsd.html#redirect-uri" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:redirect-uri</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_redirect-uris" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('instance_redirect-uris');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_redirect-uris" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                     class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;orcid:redirect-uris</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;orcid:redirect-uri</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,unbounded}</span><span class="tEl">&lt;/orcid:redirect-uri&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/orcid:redirect-uris&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_redirect-uris" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('source_redirect-uris');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_redirect-uris" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                     class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"redirect-uris"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The list of redirect_uris that the client is permitted to use during OAuth2 authorization.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tAN"> ref=</span><span class="tAV">"orcid:redirect-uri"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="redirect-uri"></a><div class="componentTitle">Element <span class="qname">orcid:redirect-uri</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.orcid.org/ns/orcid</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_redirect-uri" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('diagram_redirect-uri');"
+                                     class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_redirect-uri" style="display:block"><img alt="Diagram" border="0"
+                                   src="img/orcid-client-group-preview_xsd_Element_orcid_redirect-uri.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:anyURI</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_redirect-uri" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('properties_redirect-uri');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_redirect-uri" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn">content:
+                                       
+                                    </td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_redirect-uri" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('usedBy_redirect-uri');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_redirect-uri" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="orcid-client-group-preview_xsd.html#redirect-uris" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:redirect-uris</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_redirect-uri" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('source_redirect-uri');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_redirect-uri" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                     class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"redirect-uri"</span><span class="tAN"> type=</span><span class="tAV">"xs:anyURI"</span><span class="tEl">/&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="client-id"></a><div class="componentTitle">Element <span class="qname">orcid:client-id</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.orcid.org/ns/orcid</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_client-id" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('annotations_client-id');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_client-id" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                        class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">The client ID to be used by the client for OAuth2 authorization. If this is absent then a new client will be created.</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_client-id" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('diagram_client-id');"
+                                     class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_client-id" style="display:block"><img alt="Diagram" border="0"
+                                   src="img/orcid-client-group-preview_xsd_Element_orcid_client-id.jpeg"
+                                   usemap="#orcid-client-group-preview_xsd_Element_orcid_client-id" /><map name="orcid-client-group-preview_xsd_Element_orcid_client-id"
+                                   id="orcid-client-group-preview_xsd_Element_orcid_client-id">
+                                 <area alt="orcid-client-group-preview_xsd.tmp#orcid"
+                                       href="orcid-client-group-preview_xsd.html#orcid"
+                                       coords="162,9,268,35" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="orcid-client-group-preview_xsd.html#orcid" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:orcid</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_client-id" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('properties_client-id');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_client-id" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn">content:
+                                       
+                                    </td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_client-id" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('facets_client-id');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_client-id" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">pattern</td>
+                                    <td width="30%"><b>(\d{4}-){3,}\d{3}[\dX]</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_client-id" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('usedBy_client-id');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_client-id" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="orcid-client-group-preview_xsd.html#orcid-client" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:orcid-client</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_client-id" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('source_client-id');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_client-id" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                     class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"client-id"</span><span class="tAN"> type=</span><span class="tAV">"orcid:orcid"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The client ID to be used by the client for OAuth2 authorization. If this is absent then a new client will be created.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="client-secret"></a><div class="componentTitle">Element <span class="qname">orcid:client-secret</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.orcid.org/ns/orcid</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_client-secret" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('annotations_client-secret');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_client-secret" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                        class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">The client secret to be used by the client for OAuth2 authorization. This</span><span class="tI">
+</span><span class="tT">will be generated by ORCID and returned to the administrators of the client system in an XML</span><span class="tI">
+</span><span class="tT">file in this format. In other words, this should be omitted in the XML file that is sent to</span><span class="tI">
+</span><span class="tT">the ORCID administrators when requesting client creation or client updates.</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_client-secret" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('diagram_client-secret');"
+                                     class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_client-secret" style="display:block"><img alt="Diagram" border="0"
+                                   src="img/orcid-client-group-preview_xsd_Element_orcid_client-secret.jpeg"
+                                   usemap="#orcid-client-group-preview_xsd_Element_orcid_client-secret" /><map name="orcid-client-group-preview_xsd_Element_orcid_client-secret"
+                                   id="orcid-client-group-preview_xsd_Element_orcid_client-secret">
+                                 <area alt="orcid-client-group-preview_xsd.tmp#short-text"
+                                       href="orcid-client-group-preview_xsd.html#short-text"
+                                       coords="185,9,314,35" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="orcid-client-group-preview_xsd.html#short-text" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:short-text</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_client-secret" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('properties_client-secret');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_client-secret" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn">content:
+                                       
+                                    </td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_client-secret" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('facets_client-secret');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_client-secret" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">minLength</td>
+                                    <td width="30%"><b>3</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">maxLength</td>
+                                    <td width="30%"><b>300</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_client-secret" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('usedBy_client-secret');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_client-secret" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="orcid-client-group-preview_xsd.html#orcid-client" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:orcid-client</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_client-secret" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('source_client-secret');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_client-secret" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                     class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"client-secret"</span><span class="tAN"> type=</span><span class="tAV">"orcid:short-text"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The client secret to be used by the client for OAuth2 authorization. This will be generated by ORCID and returned to the administrators of the client system in an XML file in this format. In other words, this should be omitted in the XML file that is sent to the ORCID administrators when requesting client creation or client updates.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="orcid"></a><div class="componentTitle">Simple Type <span class="qname">orcid:orcid</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.orcid.org/ns/orcid</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_orcid" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('diagram_orcid');"
+                                     class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_orcid" style="display:block"><img alt="Diagram" border="0"
+                                   src="img/orcid-client-group-preview_xsd_Simple_Type_orcid_orcid.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>restriction of <b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_orcid" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('facets_orcid');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_orcid" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">pattern</td>
+                                    <td width="30%"><b>(\d{4}-){3,}\d{3}[\dX]</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_orcid" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('usedBy_orcid');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_orcid" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Elements </td>
+                                    <td><b><a href="orcid-client-group-preview_xsd.html#client-id" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:client-id</a></b>, <b><a href="orcid-client-group-preview_xsd.html#group-orcid" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:group-orcid</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_orcid" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('source_orcid');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_orcid" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                     class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"orcid"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:pattern</span><span class="tAN"> value=</span><span class="tAV">"(\d{4}-){3,}\d{3}[\dX]"</span><span class="tEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="short-text"></a><div class="componentTitle">Simple Type <span class="qname">orcid:short-text</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.orcid.org/ns/orcid</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_short-text" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('diagram_short-text');"
+                                     class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_short-text" style="display:block"><img alt="Diagram" border="0"
+                                   src="img/orcid-client-group-preview_xsd_Simple_Type_orcid_short-text.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>restriction of <b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_short-text" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('facets_short-text');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_short-text" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">minLength</td>
+                                    <td width="30%"><b>3</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">maxLength</td>
+                                    <td width="30%"><b>300</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_short-text" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('usedBy_short-text');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_short-text" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Elements </td>
+                                    <td><b><a href="orcid-client-group-preview_xsd.html#client-secret" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:client-secret</a></b>, <b><a href="orcid-client-group-preview_xsd.html#display-name" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:display-name</a></b>, <b><a href="orcid-client-group-preview_xsd.html#group-name" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:group-name</a></b>, <b><a href="orcid-client-group-preview_xsd.html#short-description" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:short-description</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_short-text" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('source_short-text');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_short-text" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                     class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"short-text"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:minLength</span><span class="tAN"> value=</span><span class="tAV">"3"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:maxLength</span><span class="tAN"> value=</span><span class="tAV">"300"</span><span class="tEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="http___www.orcid.org_ns_orcid_email"></a><div class="componentTitle">Simple Type <span class="qname">orcid:email</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.orcid.org/ns/orcid</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_http___www.orcid.org_ns_orcid_email" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('diagram_http___www.orcid.org_ns_orcid_email');"
+                                     class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_http___www.orcid.org_ns_orcid_email" style="display:block"><img alt="Diagram" border="0"
+                                   src="img/orcid-client-group-preview_xsd_Simple_Type_orcid_email.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>restriction of <b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_http___www.orcid.org_ns_orcid_email" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('facets_http___www.orcid.org_ns_orcid_email');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_http___www.orcid.org_ns_orcid_email" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">pattern</td>
+                                    <td width="30%"><b>[^@]+@[^\.]+\..+</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_http___www.orcid.org_ns_orcid_email" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('usedBy_http___www.orcid.org_ns_orcid_email');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_http___www.orcid.org_ns_orcid_email" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="orcid-client-group-preview_xsd.html#email" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-preview.xsd')">orcid:email</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_http___www.orcid.org_ns_orcid_email" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('source_http___www.orcid.org_ns_orcid_email');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_http___www.orcid.org_ns_orcid_email" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                     class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"email"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:pattern</span><span class="tAN"> value=</span><span class="tAV">"[^@]+@[^\.]+\..+"</span><span class="tEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table>
+      <div class="footer">
+         <hr />
+         <div align="center">XML Schema documentation generated by <a href="http://www.oxygenxml.com" target="_parent"><span class="oXygenLogo"><span class="redX">&lt;</span>o<span class="redX">X</span>ygen<span class="redX">/&gt;</span></span></a><sup>®</sup> XML Editor.
+         </div>
+      </div><script type="text/javascript">
+         <!--                     
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                --></script></body>
+</html>

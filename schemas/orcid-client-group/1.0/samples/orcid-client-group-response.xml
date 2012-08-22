@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    
+    =============================================================================
+    Copyright (C) 2011-12 by ORCID
+    
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+    
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+    
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.
+    =============================================================================
+    
+-->
+<!-- 
+    This is an example file that contains the clients details generated for use in
+    OAuth2 authorization requests. The file will be sent from the ORCID
+    administrators to the client system administrators (as an email attachment). 
+-->
+<orcid-client-group xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.orcid.org/ns/orcid ../orcid-client-group-1.0.xsd"
+ xmlns="http://www.orcid.org/ns/orcid">
+    <group-orcid>1111-1111-1111-1117</group-orcid>
+    <group-name>Elsevier</group-name>
+    <email>orcid-admin@elsevier.com</email>
+    <orcid-client type="updater">
+        <display-name>Ecological Complexity</display-name>
+        <website>http://www.journals.elsevier.com/ecological-complexity</website>
+        <short-description>An International Journal on Biocomplexity in the Environment and Theoretical Ecology</short-description>
+        <redirect-uris>
+            <redirect-uri>http://www.journals.elsevier.com/ecological-complexity/orcid-callback</redirect-uri>
+        </redirect-uris>
+        <client-id>2222-2222-2222-2228</client-id>
+        <client-secret>8136gh46783hwe7390fwe</client-secret>
+    </orcid-client>
+    <orcid-client type="updater">
+        <display-name>Ecological Economics</display-name>
+        <website>http://www.journals.elsevier.com/ecological-economics</website>
+        <short-description>The Transdisciplinary Journal of the International Society for Ecological Economics (ISEE)</short-description>
+        <redirect-uris>
+            <redirect-uri>http://www.journals.elsevier.com/ecological-economics/orcid-callback</redirect-uri>
+        </redirect-uris>
+        <client-id>3333-3333-3333-3339</client-id>
+        <client-secret>34r3lfefr808fweffe783</client-secret>
+    </orcid-client>
+</orcid-client-group>

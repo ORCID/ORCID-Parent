@@ -1,0 +1,706 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Schema documentation for </title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript">
+         <!--
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    --></script></head>
+   <body>
+      <h2><a id="INDEX">Table of Contents</a></h2>
+      <div class="toc">
+         <form action="none">
+            <div><span> Group by: <select id="selectTOC"
+                          onchange="selectTOCGroupBy(this.options[this.selectedIndex].value, true, 'orcid-message-1.0.indexList.html', 'orcid-message-1.0.indexListns.html', 'orcid-message-1.0.indexListcomp.html');">
+                     <option value="toc_group_by_namespace">Namespace</option>
+                     <option value="toc_group_by_location" selected="selected">Location</option>
+                     <option value="toc_group_by_component_type">Component Type</option></select></span></div>
+         </form>
+         <div class="level1" id="toc_group_by_location" style="display:block">
+            <div>
+               <div class="level2">
+                  <p><input id="button_orcid-message-1.0.xsd" type="image" value="-" src="img/btM.gif"
+                            onclick="switchState('orcid-message-1.0.xsd');"
+                            class="control" /><span class="indexGroupTitle">orcid-message-1.0.xsd</span></p>
+                  <div id="orcid-message-1.0.xsd" style="display:block">
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft"></td>
+                              <td class="rt_lineTop"></td>
+                              <td class="rt_cornerTopRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft"></td>
+                              <td class="rt_content">
+                                 <div class="componentGroupTitle">Elements
+                                    
+                                 </div>
+                                 <div id="orcid-message-1.0.xsdElement" style="display:block">
+                                    <div><b><a href="orcid-message-1_0_xsd.html#accession-num" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:accession-num</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#added-to-profile-date" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:added-to-profile-date</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#address" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:address</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#address-line-1" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:address-line-1</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#address-line-2" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:address-line-2</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#affiliate-institution" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:affiliate-institution</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#affiliate-institution-details"
+                                             target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:affiliate-institution-details</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#affiliate-institution-name" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:affiliate-institution-name</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#affiliate-institutions" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:affiliate-institutions</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#author" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:author</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#authors" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:authors</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#city" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:city</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#completion-date" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:completion-date</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#confirmed" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:confirmed</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#contact-details" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:contact-details</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#contributors" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:contributors</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#country" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:country</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#cover-date" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:cover-date</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#creation-method" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:creation-method</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#credit-name" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:credit-name</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#day" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:day</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#department-name" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:department-name</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#department-names" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:department-names</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#electronic-resource-num" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:electronic-resource-num</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#email" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:email</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#encrypted-password" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:encrypted-password</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#encrypted-security-answer" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:encrypted-security-answer</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#encrypted-verification-code"
+                                             target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:encrypted-verification-code</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#end-date" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:end-date</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#error-desc" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:error-desc</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#external-identifier" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:external-identifier</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#external-identifiers" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:external-identifiers</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#family-name" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:family-name</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#given-names" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:given-names</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#isbn" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:isbn</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#issn" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:issn</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#issue-number" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:issue-number</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#keyword" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:keyword</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#keywords" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:keywords</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#message-version" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:message-version</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#month" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:month</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#name" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:name</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#orcid" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:orcid</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#orcid-bio" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:orcid-bio</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#orcid-history" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:orcid-history</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#orcid-internal" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:orcid-internal</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#orcid-message" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:orcid-message</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#orcid-profile" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:orcid-profile</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#orcid-work" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:orcid-work</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#orcid-works" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:orcid-works</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#other-name" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:other-name</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#other-names" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:other-names</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#pages" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:pages</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#past-institution" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:past-institution</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#past-institution-details" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:past-institution-details</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#past-institution-name" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:past-institution-name</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#past-institutions" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:past-institutions</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#personal-details" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:personal-details</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#postal-code" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:postal-code</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#preferences" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:preferences</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#primary-institution" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:primary-institution</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#primary-institution-details"
+                                             target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:primary-institution-details</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#primary-institution-name" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:primary-institution-name</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#publication-date" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:publication-date</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#publisher" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:publisher</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#ref-type" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:ref-type</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#related-urls" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:related-urls</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#researcher-urls" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:researcher-urls</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#role" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:role</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#secondary-authors" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:secondary-authors</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#secondary-title" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:secondary-title</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#security-details" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:security-details</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#security-question-id" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:security-question-id</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#send-colleague-confirmed-registration"
+                                             target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:send-colleague-confirmed-registration</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#send-features-news" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:send-features-news</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#send-other-news" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:send-other-news</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#short-description" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:short-description</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#sponsor" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:sponsor</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#sponsor-name" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:sponsor-name</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#sponsor-orcid" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:sponsor-orcid</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#sponsor-reference" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:sponsor-reference</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#start-date" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:start-date</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#state-or-province" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:state-or-province</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#subject" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:subject</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#subjects" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:subjects</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#submission-date" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:submission-date</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#tel" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:tel</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#title" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:title</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#titles" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:titles</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#url" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:url</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#vocative-name" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:vocative-name</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#volume" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:volume</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#year" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:year</a></b></div>
+                                 </div>
+                              </td>
+                              <td class="rt_lineRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft"></td>
+                              <td class="rt_lineBottom"></td>
+                              <td class="rt_cornerBottomRight"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft"></td>
+                              <td class="rt_lineTop"></td>
+                              <td class="rt_cornerTopRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft"></td>
+                              <td class="rt_content">
+                                 <div class="componentGroupTitle">Simple Types
+                                    
+                                 </div>
+                                 <div id="orcid-message-1.0.xsdSimple_Type" style="display:block">
+                                    <div><b><a href="orcid-message-1_0_xsd.html#accession-num-type" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:accession-num-type</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#http___www.orcid.org_ns_orcid_day"
+                                             target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:day</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#electronic-resource-num-type"
+                                             target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:electronic-resource-num-type</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#http___www.orcid.org_ns_orcid_email"
+                                             target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:email</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#media-type" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:media-type</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#http___www.orcid.org_ns_orcid_month"
+                                             target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:month</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#http___www.orcid.org_ns_orcid_orcid"
+                                             target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:orcid</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#http___www.orcid.org_ns_orcid_scope"
+                                             target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:scope</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#http___www.orcid.org_ns_orcid_visibility"
+                                             target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:visibility</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#http___www.orcid.org_ns_orcid_year"
+                                             target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:year</a></b></div>
+                                 </div>
+                              </td>
+                              <td class="rt_lineRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft"></td>
+                              <td class="rt_lineBottom"></td>
+                              <td class="rt_cornerBottomRight"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft"></td>
+                              <td class="rt_lineTop"></td>
+                              <td class="rt_cornerTopRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft"></td>
+                              <td class="rt_content">
+                                 <div class="componentGroupTitle">Attribute Groups
+                                    
+                                 </div>
+                                 <div id="orcid-message-1.0.xsdAttribute_Group" style="display:block">
+                                    <div><b><a href="orcid-message-1_0_xsd.html#scope" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:scope</a></b></div>
+                                    <div><b><a href="orcid-message-1_0_xsd.html#visibility" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.xsd')">orcid:visibility</a></b></div>
+                                 </div>
+                              </td>
+                              <td class="rt_lineRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft"></td>
+                              <td class="rt_lineBottom"></td>
+                              <td class="rt_cornerBottomRight"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div style="clear:left"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="footer">
+         <hr />
+         <div align="center">XML Schema documentation generated by <a href="http://www.oxygenxml.com" target="_parent"><span class="oXygenLogo"><span class="redX">&lt;</span>o<span class="redX">X</span>ygen<span class="redX">/&gt;</span></span></a><sup>®</sup> XML Editor.
+         </div>
+      </div><script type="text/javascript">
+         <!--                     
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                --></script></body>
+</html>
