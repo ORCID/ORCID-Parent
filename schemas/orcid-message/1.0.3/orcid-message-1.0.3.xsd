@@ -381,9 +381,9 @@
         </xs:annotation>
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="orcid:external-id-orcid" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="orcid:external-id-orcid" minOccurs="0" maxOccurs="1"/>
                 <xs:element ref="orcid:external-id-common-name" minOccurs="0" maxOccurs="1"/>
-                <xs:element ref="orcid:external-id-reference" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="orcid:external-id-reference" minOccurs="0" maxOccurs="1"/>
                 <xs:element ref="orcid:external-id-url" minOccurs="0" maxOccurs="1"/>
             </xs:sequence>
         </xs:complexType>
@@ -558,40 +558,20 @@
       </xs:annotation>    
     </xs:element>
     <xs:element name="work-type">
-        <xs:complexType>
-            <xs:choice>
-                <xs:element ref="orcid:crossref-work-type"></xs:element>
-                <xs:element ref="orcid:easybib-citation-type"></xs:element>
-            </xs:choice>
-        </xs:complexType>
-    </xs:element>
-    <xs:element name="crossref-work-type">
         <xs:simpleType>
             <xs:restriction base="xs:string">
-                <xs:enumeration value="book" />
-                <xs:enumeration value="components" />
-                <xs:enumeration value="conference-proceedings" />
-                <xs:enumeration value="database" />
-                <xs:enumeration value="journal-article" />
-                <xs:enumeration value="reports-working-papers" />
-                <xs:enumeration value="standards" />
-                <xs:enumeration value="thesis" />
-            </xs:restriction>
-        </xs:simpleType>
-    </xs:element>
-     <xs:element name="easybib-citation-type">
-        <xs:simpleType>
-            <xs:restriction base="xs:string">
-                <xs:enumeration value="advertisement" />
+                <xs:enumeration value="advertisement" />               
                 <xs:enumeration value="audiovisual" />
                 <xs:enumeration value="bible" />
                 <xs:enumeration value="book" />
                 <xs:enumeration value="brochure" />
                 <xs:enumeration value="cartoon-comic" />
                 <xs:enumeration value="chapter-anthology" />
+                <xs:enumeration value="components" />
                 <xs:enumeration value="conference-proceedings" />
                 <xs:enumeration value="congressional-publication" />
                 <xs:enumeration value="court-case" />
+                <xs:enumeration value="database" />
                 <xs:enumeration value="dictionary-entry" />
                 <xs:enumeration value="digital-image" />
                 <xs:enumeration value="dissertation-abstract" />
@@ -609,7 +589,7 @@
                 <xs:enumeration value="film-movie" />
                 <xs:enumeration value="government-publication" />
                 <xs:enumeration value="interview" />
-                <xs:enumeration value="journal-article" />
+                <xs:enumeration value="journal-article" />                
                 <xs:enumeration value="lecture-speech" />
                 <xs:enumeration value="legal" />
                 <xs:enumeration value="letter" />
@@ -632,9 +612,11 @@
                 <xs:enumeration value="press-release" />
                 <xs:enumeration value="raw-data" />
                 <xs:enumeration value="report" />
+                <xs:enumeration value="reports-working-papers" />
                 <xs:enumeration value="review" />
                 <xs:enumeration value="scholarly-project" />
                 <xs:enumeration value="software" />
+                <xs:enumeration value="standards" />
                 <xs:enumeration value="television-radio" />
                 <xs:enumeration value="thesis" />
                 <xs:enumeration value="web-site" />
@@ -1105,7 +1087,7 @@
     <xs:element name="country">
         <xs:complexType mixed="true">
             <xs:annotation>
-                <xs:documentation>Country of the Institution</xs:documentation>
+                <xs:documentation>This should be a 2 character country code from ISO-3166.</xs:documentation>
             </xs:annotation>
         <xs:attributeGroup ref="orcid:visibility"/>
         </xs:complexType>

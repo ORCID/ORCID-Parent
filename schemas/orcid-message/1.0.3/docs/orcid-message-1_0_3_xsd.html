@@ -75,8 +75,6 @@
 				'properties_subtitle', 
 				'properties_short-description', 
 				'properties_work-type', 
-				'properties_crossref-work-type', 
-				'properties_easybib-citation-type', 
 				'properties_publication-date', 
 				'properties_year', 
 				'properties_month', 
@@ -139,8 +137,7 @@
         var facetsBoxes= new Array('facets_message-version', 
 				'facets_creation-method', 
 				'facets_affiliation-type', 
-				'facets_crossref-work-type', 
-				'facets_easybib-citation-type', 
+				'facets_work-type', 
 				'facets_work-external-identifier-type', 
 				'facets_contributor-sequence', 
 				'facets_contributor-role', 
@@ -229,8 +226,6 @@
 				'usedBy_short-description', 
 				'usedBy_work-citation', 
 				'usedBy_work-type', 
-				'usedBy_crossref-work-type', 
-				'usedBy_easybib-citation-type', 
 				'usedBy_publication-date', 
 				'usedBy_year', 
 				'usedBy_month', 
@@ -370,8 +365,6 @@
 				'source_short-description', 
 				'source_work-citation', 
 				'source_work-type', 
-				'source_crossref-work-type', 
-				'source_easybib-citation-type', 
 				'source_publication-date', 
 				'source_year', 
 				'source_month', 
@@ -475,7 +468,6 @@
 				'instance_orcid-works', 
 				'instance_orcid-work', 
 				'instance_work-title', 
-				'instance_work-type', 
 				'instance_publication-date', 
 				'instance_work-external-identifiers', 
 				'instance_work-external-identifier', 
@@ -569,8 +561,6 @@
 				'diagram_short-description', 
 				'diagram_work-citation', 
 				'diagram_work-type', 
-				'diagram_crossref-work-type', 
-				'diagram_easybib-citation-type', 
 				'diagram_publication-date', 
 				'diagram_year', 
 				'diagram_month', 
@@ -6226,7 +6216,7 @@
                                     <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"country"</span><span class="tEl">&gt;</span><span class="tI">
   </span><span class="tEl">&lt;xs:complexType</span><span class="tAN"> mixed=</span><span class="tAV">"true"</span><span class="tEl">&gt;</span><span class="tI">
     </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Country of the Institution</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">This should be a 2 character country code from ISO-3166.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
     </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
     </span><span class="tEl">&lt;xs:attributeGroup</span><span class="tAN"> ref=</span><span class="tAV">"orcid:visibility"</span><span class="tEl">/&gt;</span><span class="tI">
   </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
@@ -6874,11 +6864,11 @@
                         <td class="firstColumn"><b>Model</b></td>
                         <td><b><a href="orcid-message-1_0_3_xsd.html#external-id-orcid" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-message-1.0.3.xsd')">orcid:external-id-orcid</a></b> , <b><a href="orcid-message-1_0_3_xsd.html#external-id-common-name" target="mainFrame"
+                                 onclick="updatePageTitle('Schema documentation for orcid-message-1.0.3.xsd')">orcid:external-id-orcid{0,1}</a></b> , <b><a href="orcid-message-1_0_3_xsd.html#external-id-common-name" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
                                  onclick="updatePageTitle('Schema documentation for orcid-message-1.0.3.xsd')">orcid:external-id-common-name{0,1}</a></b> , <b><a href="orcid-message-1_0_3_xsd.html#external-id-reference" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-message-1.0.3.xsd')">orcid:external-id-reference</a></b> , <b><a href="orcid-message-1_0_3_xsd.html#external-id-url" target="mainFrame"
+                                 onclick="updatePageTitle('Schema documentation for orcid-message-1.0.3.xsd')">orcid:external-id-reference{0,1}</a></b> , <b><a href="orcid-message-1_0_3_xsd.html#external-id-url" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
                                  onclick="updatePageTitle('Schema documentation for orcid-message-1.0.3.xsd')">orcid:external-id-url{0,1}</a></b></td>
                      </tr>
@@ -6908,9 +6898,9 @@
                                      class="preWrapContainer">
                                  <tr>
                                     <td width="100%"><pre><span class="tEl">&lt;orcid:external-identifier</span><span class="tEl">&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;orcid:external-id-orcid</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/orcid:external-id-orcid&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;orcid:external-id-orcid</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/orcid:external-id-orcid&gt;</span><span class="tI">
   </span><span class="tEl">&lt;orcid:external-id-common-name</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/orcid:external-id-common-name&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;orcid:external-id-reference</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/orcid:external-id-reference&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;orcid:external-id-reference</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/orcid:external-id-reference&gt;</span><span class="tI">
   </span><span class="tEl">&lt;orcid:external-id-url</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/orcid:external-id-url&gt;</span><span class="tI">
 </span><span class="tEl">&lt;/orcid:external-identifier&gt;</span></pre></td>
                                  </tr>
@@ -6936,9 +6926,9 @@
   </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
   </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
     </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"orcid:external-id-orcid"</span><span class="tAN"> minOccurs=</span><span class="tAV">"1"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"orcid:external-id-orcid"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"orcid:external-id-common-name"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"orcid:external-id-reference"</span><span class="tAN"> minOccurs=</span><span class="tAV">"1"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"orcid:external-id-reference"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"orcid:external-id-url"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
     </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
   </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
@@ -10912,21 +10902,21 @@
                                        coords="203,287,313,312" />
                                  <area alt="orcid-message-1_0_3_xsd.tmp#work-type"
                                        href="orcid-message-1_0_3_xsd.html#work-type"
-                                       coords="203,353,311,378" />
+                                       coords="203,353,376,397" />
                                  <area alt="orcid-message-1_0_3_xsd.tmp#publication-date"
                                        href="orcid-message-1_0_3_xsd.html#publication-date"
-                                       coords="203,388,337,413" />
+                                       coords="203,407,337,432" />
                                  <area alt="orcid-message-1_0_3_xsd.tmp#work-external-identifiers"
                                        href="orcid-message-1_0_3_xsd.html#work-external-identifiers"
-                                       coords="203,454,380,479" />
+                                       coords="203,473,380,498" />
                                  <area alt="orcid-message-1_0_3_xsd.tmp#url" href="orcid-message-1_0_3_xsd.html#url"
-                                       coords="203,520,382,564" />
+                                       coords="203,539,382,583" />
                                  <area alt="orcid-message-1_0_3_xsd.tmp#work-contributors"
                                        href="orcid-message-1_0_3_xsd.html#work-contributors"
-                                       coords="203,574,348,599" />
+                                       coords="203,593,348,618" />
                                  <area alt="orcid-message-1_0_3_xsd.tmp#work-sources"
                                        href="orcid-message-1_0_3_xsd.html#work-sources"
-                                       coords="203,640,330,665" /></map></div>
+                                       coords="203,659,330,684" /></map></div>
                         </td>
                      </tr>
                      <tr>
@@ -11848,16 +11838,12 @@
                         </td>
                         <td class="diagram">
                            <div id="diagram_work-type" style="display:block"><img alt="Diagram" border="0"
-                                   src="img/orcid-message-1_0_3_xsd_Element_orcid_work-type.jpeg"
-                                   usemap="#orcid-message-1_0_3_xsd_Element_orcid_work-type" /><map name="orcid-message-1_0_3_xsd_Element_orcid_work-type"
-                                   id="orcid-message-1_0_3_xsd_Element_orcid_work-type">
-                                 <area alt="orcid-message-1_0_3_xsd.tmp#crossref-work-type"
-                                       href="orcid-message-1_0_3_xsd.html#crossref-work-type"
-                                       coords="180,2,353,46" />
-                                 <area alt="orcid-message-1_0_3_xsd.tmp#easybib-citation-type"
-                                       href="orcid-message-1_0_3_xsd.html#easybib-citation-type"
-                                       coords="180,56,353,100" /></map></div>
+                                   src="img/orcid-message-1_0_3_xsd_Element_orcid_work-type.jpeg" /></div>
                         </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>restriction of <b>xs:string</b></td>
                      </tr>
                      <tr>
                         <td class="firstColumn">
@@ -11873,151 +11859,6 @@
                                     <td class="firstColumn">content:
                                        
                                     </td>
-                                    <td><b>complex</b></td>
-                                 </tr>
-                              </table>
-                           </div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td class="firstColumn">
-                           <div class="floatLeft"><b>Used by</b></div>
-                           <div class="floatRight"><input id="button_usedBy_work-type" type="image" src="img/btM.gif" value="-"
-                                     onclick="switchState('usedBy_work-type');"
-                                     class="control" /></div>
-                        </td>
-                        <td>
-                           <div id="usedBy_work-type" style="display:block">
-                              <table class="usedByTable">
-                                 <tr>
-                                    <td class="firstColumn">Element </td>
-                                    <td><b><a href="orcid-message-1_0_3_xsd.html#orcid-work" target="mainFrame"
-                                             title="http://www.orcid.org/ns/orcid"
-                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.3.xsd')">orcid:orcid-work</a></b></td>
-                                 </tr>
-                              </table>
-                           </div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td class="firstColumn"><b>Model</b></td>
-                        <td><b><a href="orcid-message-1_0_3_xsd.html#crossref-work-type" target="mainFrame"
-                                 title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-message-1.0.3.xsd')">orcid:crossref-work-type</a></b> | <b><a href="orcid-message-1_0_3_xsd.html#easybib-citation-type" target="mainFrame"
-                                 title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-message-1.0.3.xsd')">orcid:easybib-citation-type</a></b></td>
-                     </tr>
-                     <tr>
-                        <td class="firstColumn"><b>Children</b></td>
-                        <td><b><a href="orcid-message-1_0_3_xsd.html#crossref-work-type" target="mainFrame"
-                                 title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-message-1.0.3.xsd')">orcid:crossref-work-type</a></b>, <b><a href="orcid-message-1_0_3_xsd.html#easybib-citation-type" target="mainFrame"
-                                 title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-message-1.0.3.xsd')">orcid:easybib-citation-type</a></b></td>
-                     </tr>
-                     <tr>
-                        <td class="firstColumn">
-                           <div class="floatLeft"><b>Instance</b></div>
-                           <div class="floatRight"><input id="button_instance_work-type" type="image" src="img/btM.gif" value="-"
-                                     onclick="switchState('instance_work-type');"
-                                     class="control" /></div>
-                        </td>
-                        <td>
-                           <div id="instance_work-type" style="display:block">
-                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
-                                     class="preWrapContainer">
-                                 <tr>
-                                    <td width="100%"><pre><span class="tEl">&lt;orcid:work-type</span><span class="tEl">&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;orcid:crossref-work-type</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/orcid:crossref-work-type&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;orcid:easybib-citation-type</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/orcid:easybib-citation-type&gt;</span><span class="tI">
-</span><span class="tEl">&lt;/orcid:work-type&gt;</span></pre></td>
-                                 </tr>
-                              </table>
-                           </div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td class="firstColumn">
-                           <div class="floatLeft"><b>Source</b></div>
-                           <div class="floatRight"><input id="button_source_work-type" type="image" src="img/btM.gif" value="-"
-                                     onclick="switchState('source_work-type');"
-                                     class="control" /></div>
-                        </td>
-                        <td>
-                           <div id="source_work-type" style="display:block">
-                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
-                                     class="preWrapContainer">
-                                 <tr>
-                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"work-type"</span><span class="tEl">&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
-    </span><span class="tEl">&lt;xs:choice</span><span class="tEl">&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"orcid:crossref-work-type"</span><span class="tEl">/&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"orcid:easybib-citation-type"</span><span class="tEl">/&gt;</span><span class="tI">
-    </span><span class="tEl">&lt;/xs:choice&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
-</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
-                                 </tr>
-                              </table>
-                           </div>
-                        </td>
-                     </tr>
-                  </tbody>
-               </table>
-            </td>
-            <td class="rt_lineRight"></td>
-         </tr>
-         <tr>
-            <td class="rt_cornerBottomLeft"></td>
-            <td class="rt_lineBottom"></td>
-            <td class="rt_cornerBottomRight"></td>
-         </tr>
-      </table><a id="crossref-work-type"></a><div class="componentTitle">Element <span class="qname">orcid:crossref-work-type</span></div>
-      <table class="rt">
-         <tr>
-            <td class="rt_cornerTopLeft"></td>
-            <td class="rt_lineTop"></td>
-            <td class="rt_cornerTopRight"></td>
-         </tr>
-         <tr>
-            <td class="rt_lineLeft"></td>
-            <td class="rt_content">
-               <table class="component">
-                  <tbody>
-                     <tr>
-                        <td class="firstColumn"><b>Namespace</b></td>
-                        <td>http://www.orcid.org/ns/orcid</td>
-                     </tr>
-                     <tr>
-                        <td class="firstColumn">
-                           <div class="floatLeft"><b>Diagram</b></div>
-                           <div class="floatRight"><input id="button_diagram_crossref-work-type" type="image" src="img/btM.gif" value="-"
-                                     onclick="switchState('diagram_crossref-work-type');"
-                                     class="control" /></div>
-                        </td>
-                        <td class="diagram">
-                           <div id="diagram_crossref-work-type" style="display:block"><img alt="Diagram" border="0"
-                                   src="img/orcid-message-1_0_3_xsd_Element_orcid_crossref-work-type.jpeg" /></div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td class="firstColumn"><b>Type</b></td>
-                        <td>restriction of <b>xs:string</b></td>
-                     </tr>
-                     <tr>
-                        <td class="firstColumn">
-                           <div class="floatLeft"><b>Properties</b></div>
-                           <div class="floatRight"><input id="button_properties_crossref-work-type" type="image" src="img/btM.gif"
-                                     value="-"
-                                     onclick="switchState('properties_crossref-work-type');"
-                                     class="control" /></div>
-                        </td>
-                        <td>
-                           <div id="properties_crossref-work-type" style="display:block">
-                              <table class="propertiesTable">
-                                 <tr>
-                                    <td class="firstColumn">content:
-                                       
-                                    </td>
                                     <td><b>simple</b></td>
                                  </tr>
                               </table>
@@ -12027,198 +11868,12 @@
                      <tr>
                         <td class="firstColumn">
                            <div class="floatLeft"><b>Facets</b></div>
-                           <div class="floatRight"><input id="button_facets_crossref-work-type" type="image" src="img/btM.gif" value="-"
-                                     onclick="switchState('facets_crossref-work-type');"
+                           <div class="floatRight"><input id="button_facets_work-type" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('facets_work-type');"
                                      class="control" /></div>
                         </td>
                         <td>
-                           <div id="facets_crossref-work-type" style="display:block">
-                              <table class="facetsTable">
-                                 <tr>
-                                    <td class="firstColumn">enumeration</td>
-                                    <td width="30%"><b>book</b></td>
-                                    <td>
-                                       <div class="annotation"></div>
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <td class="firstColumn">enumeration</td>
-                                    <td width="30%"><b>components</b></td>
-                                    <td>
-                                       <div class="annotation"></div>
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <td class="firstColumn">enumeration</td>
-                                    <td width="30%"><b>conference-proceedings</b></td>
-                                    <td>
-                                       <div class="annotation"></div>
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <td class="firstColumn">enumeration</td>
-                                    <td width="30%"><b>database</b></td>
-                                    <td>
-                                       <div class="annotation"></div>
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <td class="firstColumn">enumeration</td>
-                                    <td width="30%"><b>journal-article</b></td>
-                                    <td>
-                                       <div class="annotation"></div>
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <td class="firstColumn">enumeration</td>
-                                    <td width="30%"><b>reports-working-papers</b></td>
-                                    <td>
-                                       <div class="annotation"></div>
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <td class="firstColumn">enumeration</td>
-                                    <td width="30%"><b>standards</b></td>
-                                    <td>
-                                       <div class="annotation"></div>
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <td class="firstColumn">enumeration</td>
-                                    <td width="30%"><b>thesis</b></td>
-                                    <td>
-                                       <div class="annotation"></div>
-                                    </td>
-                                 </tr>
-                              </table>
-                           </div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td class="firstColumn">
-                           <div class="floatLeft"><b>Used by</b></div>
-                           <div class="floatRight"><input id="button_usedBy_crossref-work-type" type="image" src="img/btM.gif" value="-"
-                                     onclick="switchState('usedBy_crossref-work-type');"
-                                     class="control" /></div>
-                        </td>
-                        <td>
-                           <div id="usedBy_crossref-work-type" style="display:block">
-                              <table class="usedByTable">
-                                 <tr>
-                                    <td class="firstColumn">Element </td>
-                                    <td><b><a href="orcid-message-1_0_3_xsd.html#work-type" target="mainFrame"
-                                             title="http://www.orcid.org/ns/orcid"
-                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.3.xsd')">orcid:work-type</a></b></td>
-                                 </tr>
-                              </table>
-                           </div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td class="firstColumn">
-                           <div class="floatLeft"><b>Source</b></div>
-                           <div class="floatRight"><input id="button_source_crossref-work-type" type="image" src="img/btM.gif" value="-"
-                                     onclick="switchState('source_crossref-work-type');"
-                                     class="control" /></div>
-                        </td>
-                        <td>
-                           <div id="source_crossref-work-type" style="display:block">
-                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
-                                     class="preWrapContainer">
-                                 <tr>
-                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"crossref-work-type"</span><span class="tEl">&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
-    </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"book"</span><span class="tEl">/&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"components"</span><span class="tEl">/&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"conference-proceedings"</span><span class="tEl">/&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"database"</span><span class="tEl">/&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"journal-article"</span><span class="tEl">/&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"reports-working-papers"</span><span class="tEl">/&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"standards"</span><span class="tEl">/&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"thesis"</span><span class="tEl">/&gt;</span><span class="tI">
-    </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
-</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
-                                 </tr>
-                              </table>
-                           </div>
-                        </td>
-                     </tr>
-                  </tbody>
-               </table>
-            </td>
-            <td class="rt_lineRight"></td>
-         </tr>
-         <tr>
-            <td class="rt_cornerBottomLeft"></td>
-            <td class="rt_lineBottom"></td>
-            <td class="rt_cornerBottomRight"></td>
-         </tr>
-      </table><a id="easybib-citation-type"></a><div class="componentTitle">Element <span class="qname">orcid:easybib-citation-type</span></div>
-      <table class="rt">
-         <tr>
-            <td class="rt_cornerTopLeft"></td>
-            <td class="rt_lineTop"></td>
-            <td class="rt_cornerTopRight"></td>
-         </tr>
-         <tr>
-            <td class="rt_lineLeft"></td>
-            <td class="rt_content">
-               <table class="component">
-                  <tbody>
-                     <tr>
-                        <td class="firstColumn"><b>Namespace</b></td>
-                        <td>http://www.orcid.org/ns/orcid</td>
-                     </tr>
-                     <tr>
-                        <td class="firstColumn">
-                           <div class="floatLeft"><b>Diagram</b></div>
-                           <div class="floatRight"><input id="button_diagram_easybib-citation-type" type="image" src="img/btM.gif"
-                                     value="-"
-                                     onclick="switchState('diagram_easybib-citation-type');"
-                                     class="control" /></div>
-                        </td>
-                        <td class="diagram">
-                           <div id="diagram_easybib-citation-type" style="display:block"><img alt="Diagram" border="0"
-                                   src="img/orcid-message-1_0_3_xsd_Element_orcid_easybib-citation-type.jpeg" /></div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td class="firstColumn"><b>Type</b></td>
-                        <td>restriction of <b>xs:string</b></td>
-                     </tr>
-                     <tr>
-                        <td class="firstColumn">
-                           <div class="floatLeft"><b>Properties</b></div>
-                           <div class="floatRight"><input id="button_properties_easybib-citation-type" type="image" src="img/btM.gif"
-                                     value="-"
-                                     onclick="switchState('properties_easybib-citation-type');"
-                                     class="control" /></div>
-                        </td>
-                        <td>
-                           <div id="properties_easybib-citation-type" style="display:block">
-                              <table class="propertiesTable">
-                                 <tr>
-                                    <td class="firstColumn">content:
-                                       
-                                    </td>
-                                    <td><b>simple</b></td>
-                                 </tr>
-                              </table>
-                           </div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td class="firstColumn">
-                           <div class="floatLeft"><b>Facets</b></div>
-                           <div class="floatRight"><input id="button_facets_easybib-citation-type" type="image" src="img/btM.gif"
-                                     value="-"
-                                     onclick="switchState('facets_easybib-citation-type');"
-                                     class="control" /></div>
-                        </td>
-                        <td>
-                           <div id="facets_easybib-citation-type" style="display:block">
+                           <div id="facets_work-type" style="display:block">
                               <table class="facetsTable">
                                  <tr>
                                     <td class="firstColumn">enumeration</td>
@@ -12271,6 +11926,13 @@
                                  </tr>
                                  <tr>
                                     <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>components</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
                                     <td width="30%"><b>conference-proceedings</b></td>
                                     <td>
                                        <div class="annotation"></div>
@@ -12286,6 +11948,13 @@
                                  <tr>
                                     <td class="firstColumn">enumeration</td>
                                     <td width="30%"><b>court-case</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>database</b></td>
                                     <td>
                                        <div class="annotation"></div>
                                     </td>
@@ -12572,6 +12241,13 @@
                                  </tr>
                                  <tr>
                                     <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>reports-working-papers</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
                                     <td width="30%"><b>review</b></td>
                                     <td>
                                        <div class="annotation"></div>
@@ -12587,6 +12263,13 @@
                                  <tr>
                                     <td class="firstColumn">enumeration</td>
                                     <td width="30%"><b>software</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>standards</b></td>
                                     <td>
                                        <div class="annotation"></div>
                                     </td>
@@ -12619,19 +12302,18 @@
                      <tr>
                         <td class="firstColumn">
                            <div class="floatLeft"><b>Used by</b></div>
-                           <div class="floatRight"><input id="button_usedBy_easybib-citation-type" type="image" src="img/btM.gif"
-                                     value="-"
-                                     onclick="switchState('usedBy_easybib-citation-type');"
+                           <div class="floatRight"><input id="button_usedBy_work-type" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('usedBy_work-type');"
                                      class="control" /></div>
                         </td>
                         <td>
-                           <div id="usedBy_easybib-citation-type" style="display:block">
+                           <div id="usedBy_work-type" style="display:block">
                               <table class="usedByTable">
                                  <tr>
                                     <td class="firstColumn">Element </td>
-                                    <td><b><a href="orcid-message-1_0_3_xsd.html#work-type" target="mainFrame"
+                                    <td><b><a href="orcid-message-1_0_3_xsd.html#orcid-work" target="mainFrame"
                                              title="http://www.orcid.org/ns/orcid"
-                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.3.xsd')">orcid:work-type</a></b></td>
+                                             onclick="updatePageTitle('Schema documentation for orcid-message-1.0.3.xsd')">orcid:orcid-work</a></b></td>
                                  </tr>
                               </table>
                            </div>
@@ -12640,17 +12322,16 @@
                      <tr>
                         <td class="firstColumn">
                            <div class="floatLeft"><b>Source</b></div>
-                           <div class="floatRight"><input id="button_source_easybib-citation-type" type="image" src="img/btM.gif"
-                                     value="-"
-                                     onclick="switchState('source_easybib-citation-type');"
+                           <div class="floatRight"><input id="button_source_work-type" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('source_work-type');"
                                      class="control" /></div>
                         </td>
                         <td>
-                           <div id="source_easybib-citation-type" style="display:block">
+                           <div id="source_work-type" style="display:block">
                               <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
                                      class="preWrapContainer">
                                  <tr>
-                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"easybib-citation-type"</span><span class="tEl">&gt;</span><span class="tI">
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"work-type"</span><span class="tEl">&gt;</span><span class="tI">
   </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
     </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"advertisement"</span><span class="tEl">/&gt;</span><span class="tI">
@@ -12660,9 +12341,11 @@
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"brochure"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"cartoon-comic"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"chapter-anthology"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"components"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"conference-proceedings"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"congressional-publication"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"court-case"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"database"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"dictionary-entry"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"digital-image"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"dissertation-abstract"</span><span class="tEl">/&gt;</span><span class="tI">
@@ -12703,9 +12386,11 @@
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"press-release"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"raw-data"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"report"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"reports-working-papers"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"review"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"scholarly-project"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"software"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"standards"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"television-radio"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"thesis"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"web-site"</span><span class="tEl">/&gt;</span><span class="tI">
