@@ -6,7 +6,7 @@
       <title>Schema documentation for </title>
       <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript">
          <!--
-        var propertiesBoxes= new Array('properties_orcid-client-group-1.0.xsd', 
+        var propertiesBoxes= new Array('properties_orcid-client-group-1.1.xsd', 
 				'properties_orcid-client-group', 
 				'properties_group-orcid', 
 				'properties_group-name', 
@@ -19,6 +19,7 @@
 				'properties_redirect-uri', 
 				'properties_client-id', 
 				'properties_client-secret', 
+				'properties_redirect-uri_scope', 
 				'properties_orcid-client_type');
 
         var facetsBoxes= new Array('facets_group-orcid', 
@@ -32,6 +33,7 @@
 				'facets_short-text', 
 				'facets_http___www.orcid.org_ns_orcid_email', 
 				'facets_client-type', 
+				'facets_scope-path-type', 
 				'facets_orcid-client_type');
 
         var usedByBoxes= new Array('usedBy_group-orcid', 
@@ -48,7 +50,9 @@
 				'usedBy_orcid', 
 				'usedBy_short-text', 
 				'usedBy_http___www.orcid.org_ns_orcid_email', 
+				'usedBy_scope', 
 				'usedBy_client-type', 
+				'usedBy_redirect-uri_scope', 
 				'usedBy_orcid-client_type');
 
         var sourceBoxes= new Array('source_orcid-client-group', 
@@ -66,7 +70,10 @@
 				'source_orcid', 
 				'source_short-text', 
 				'source_http___www.orcid.org_ns_orcid_email', 
+				'source_scope', 
 				'source_client-type', 
+				'source_scope-path-type', 
+				'source_redirect-uri_scope', 
 				'source_orcid-client_type');
 
         var instanceBoxes= new Array('instance_orcid-client-group', 
@@ -88,9 +95,11 @@
 				'diagram_orcid', 
 				'diagram_short-text', 
 				'diagram_http___www.orcid.org_ns_orcid_email', 
-				'diagram_client-type');
+				'diagram_scope', 
+				'diagram_client-type', 
+				'diagram_scope-path-type');
 
-        var annotationBoxes= new Array('annotations_orcid-client-group-1.0.xsd', 
+        var annotationBoxes= new Array('annotations_orcid-client-group-1.1.xsd', 
 				'annotations_orcid-client-group', 
 				'annotations_group-orcid', 
 				'annotations_group-name', 
@@ -102,7 +111,8 @@
 				'annotations_client-id', 
 				'annotations_client-secret');
 
-        var attributesBoxes= new Array('attributes_orcid-client');
+        var attributesBoxes= new Array('attributes_orcid-client', 
+				'attributes_redirect-uri');
 
         
         var button_prefix = 'button_';
@@ -400,7 +410,7 @@
                <td class="rt_cornerBottomRight"></td>
             </tr>
          </table>
-      </div><a id="orcid-client-group-1.0.xsd"></a><div class="componentTitle">Main schema <span class="qname">orcid-client-group-1.0.xsd</span></div>
+      </div><a id="orcid-client-group-1.1.xsd"></a><div class="componentTitle">Main schema <span class="qname">orcid-client-group-1.1.xsd</span></div>
       <table class="rt">
          <tr>
             <td class="rt_cornerTopLeft"></td>
@@ -419,14 +429,14 @@
                      <tr>
                         <td class="firstColumn">
                            <div class="floatLeft"><b>Annotations</b></div>
-                           <div class="floatRight"><input id="button_annotations_orcid-client-group-1.0.xsd" type="image"
+                           <div class="floatRight"><input id="button_annotations_orcid-client-group-1.1.xsd" type="image"
                                      src="img/btM.gif"
                                      value="-"
-                                     onclick="switchState('annotations_orcid-client-group-1.0.xsd');"
+                                     onclick="switchState('annotations_orcid-client-group-1.1.xsd');"
                                      class="control" /></div>
                         </td>
                         <td>
-                           <div id="annotations_orcid-client-group-1.0.xsd" style="display:block">
+                           <div id="annotations_orcid-client-group-1.1.xsd" style="display:block">
                               <div class="annotation">
                                  <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
                                         class="preWrapContainer">
@@ -463,14 +473,14 @@
                      <tr>
                         <td class="firstColumn">
                            <div class="floatLeft"><b>Properties</b></div>
-                           <div class="floatRight"><input id="button_properties_orcid-client-group-1.0.xsd" type="image"
+                           <div class="floatRight"><input id="button_properties_orcid-client-group-1.1.xsd" type="image"
                                      src="img/btM.gif"
                                      value="-"
-                                     onclick="switchState('properties_orcid-client-group-1.0.xsd');"
+                                     onclick="switchState('properties_orcid-client-group-1.1.xsd');"
                                      class="control" /></div>
                         </td>
                         <td>
-                           <div id="properties_orcid-client-group-1.0.xsd" style="display:block">
+                           <div id="properties_orcid-client-group-1.1.xsd" style="display:block">
                               <table class="propertiesTable">
                                  <tr>
                                     <td class="firstColumn">attribute form default:
@@ -544,20 +554,20 @@
                         </td>
                         <td class="diagram">
                            <div id="diagram_orcid-client-group" style="display:block"><img alt="Diagram" border="0"
-                                   src="img/orcid-client-group-1_0_xsd_Element_orcid_orcid-client-group.jpeg"
-                                   usemap="#orcid-client-group-1_0_xsd_Element_orcid_orcid-client-group" /><map name="orcid-client-group-1_0_xsd_Element_orcid_orcid-client-group"
-                                   id="orcid-client-group-1_0_xsd_Element_orcid_orcid-client-group">
-                                 <area alt="orcid-client-group-1_0_xsd.tmp#group-orcid"
-                                       href="orcid-client-group-1_0_xsd.html#group-orcid"
+                                   src="img/orcid-client-group-1_1_xsd_Element_orcid_orcid-client-group.jpeg"
+                                   usemap="#orcid-client-group-1_1_xsd_Element_orcid_orcid-client-group" /><map name="orcid-client-group-1_1_xsd_Element_orcid_orcid-client-group"
+                                   id="orcid-client-group-1_1_xsd_Element_orcid_orcid-client-group">
+                                 <area alt="orcid-client-group-1_1_xsd.tmp#group-orcid"
+                                       href="orcid-client-group-1_1_xsd.html#group-orcid"
                                        coords="255,2,369,46" />
-                                 <area alt="orcid-client-group-1_0_xsd.tmp#group-name"
-                                       href="orcid-client-group-1_0_xsd.html#group-name"
+                                 <area alt="orcid-client-group-1_1_xsd.tmp#group-name"
+                                       href="orcid-client-group-1_1_xsd.html#group-name"
                                        coords="255,101,392,145" />
-                                 <area alt="orcid-client-group-1_0_xsd.tmp#email"
-                                       href="orcid-client-group-1_0_xsd.html#email"
+                                 <area alt="orcid-client-group-1_1_xsd.tmp#email"
+                                       href="orcid-client-group-1_1_xsd.html#email"
                                        coords="255,186,369,230" />
-                                 <area alt="orcid-client-group-1_0_xsd.tmp#orcid-client"
-                                       href="orcid-client-group-1_0_xsd.html#orcid-client"
+                                 <area alt="orcid-client-group-1_1_xsd.tmp#orcid-client"
+                                       href="orcid-client-group-1_1_xsd.html#orcid-client"
                                        coords="255,285,366,310" /></map></div>
                         </td>
                      </tr>
@@ -584,27 +594,27 @@
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Model</b></td>
-                        <td><b><a href="orcid-client-group-1_0_xsd.html#group-orcid" target="mainFrame"
+                        <td><b><a href="orcid-client-group-1_1_xsd.html#group-orcid" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:group-orcid{0,1}</a></b> , <b><a href="orcid-client-group-1_0_xsd.html#group-name" target="mainFrame"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:group-orcid{0,1}</a></b> , <b><a href="orcid-client-group-1_1_xsd.html#group-name" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:group-name</a></b> , <b><a href="orcid-client-group-1_0_xsd.html#email" target="mainFrame"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:group-name</a></b> , <b><a href="orcid-client-group-1_1_xsd.html#email" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:email</a></b> , <b><a href="orcid-client-group-1_0_xsd.html#orcid-client" target="mainFrame"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:email</a></b> , <b><a href="orcid-client-group-1_1_xsd.html#orcid-client" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:orcid-client+</a></b></td>
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:orcid-client+</a></b></td>
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Children</b></td>
-                        <td><b><a href="orcid-client-group-1_0_xsd.html#email" target="mainFrame"
+                        <td><b><a href="orcid-client-group-1_1_xsd.html#email" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:email</a></b>, <b><a href="orcid-client-group-1_0_xsd.html#group-name" target="mainFrame"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:email</a></b>, <b><a href="orcid-client-group-1_1_xsd.html#group-name" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:group-name</a></b>, <b><a href="orcid-client-group-1_0_xsd.html#group-orcid" target="mainFrame"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:group-name</a></b>, <b><a href="orcid-client-group-1_1_xsd.html#group-orcid" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:group-orcid</a></b>, <b><a href="orcid-client-group-1_0_xsd.html#orcid-client" target="mainFrame"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:group-orcid</a></b>, <b><a href="orcid-client-group-1_1_xsd.html#orcid-client" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:orcid-client</a></b></td>
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:orcid-client</a></b></td>
                      </tr>
                      <tr>
                         <td class="firstColumn">
@@ -715,19 +725,19 @@
                         </td>
                         <td class="diagram">
                            <div id="diagram_group-orcid" style="display:block"><img alt="Diagram" border="0"
-                                   src="img/orcid-client-group-1_0_xsd_Element_orcid_group-orcid.jpeg"
-                                   usemap="#orcid-client-group-1_0_xsd_Element_orcid_group-orcid" /><map name="orcid-client-group-1_0_xsd_Element_orcid_group-orcid"
-                                   id="orcid-client-group-1_0_xsd_Element_orcid_group-orcid">
-                                 <area alt="orcid-client-group-1_0_xsd.tmp#orcid"
-                                       href="orcid-client-group-1_0_xsd.html#orcid"
+                                   src="img/orcid-client-group-1_1_xsd_Element_orcid_group-orcid.jpeg"
+                                   usemap="#orcid-client-group-1_1_xsd_Element_orcid_group-orcid" /><map name="orcid-client-group-1_1_xsd_Element_orcid_group-orcid"
+                                   id="orcid-client-group-1_1_xsd_Element_orcid_group-orcid">
+                                 <area alt="orcid-client-group-1_1_xsd.tmp#orcid"
+                                       href="orcid-client-group-1_1_xsd.html#orcid"
                                        coords="162,9,268,35" /></map></div>
                         </td>
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Type</b></td>
-                        <td><b><a href="orcid-client-group-1_0_xsd.html#orcid" target="mainFrame"
+                        <td><b><a href="orcid-client-group-1_1_xsd.html#orcid" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:orcid</a></b></td>
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:orcid</a></b></td>
                      </tr>
                      <tr>
                         <td class="firstColumn">
@@ -782,9 +792,9 @@
                               <table class="usedByTable">
                                  <tr>
                                     <td class="firstColumn">Element </td>
-                                    <td><b><a href="orcid-client-group-1_0_xsd.html#orcid-client-group" target="mainFrame"
+                                    <td><b><a href="orcid-client-group-1_1_xsd.html#orcid-client-group" target="mainFrame"
                                              title="http://www.orcid.org/ns/orcid"
-                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:orcid-client-group</a></b></td>
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:orcid-client-group</a></b></td>
                                  </tr>
                               </table>
                            </div>
@@ -867,19 +877,19 @@
                         </td>
                         <td class="diagram">
                            <div id="diagram_group-name" style="display:block"><img alt="Diagram" border="0"
-                                   src="img/orcid-client-group-1_0_xsd_Element_orcid_group-name.jpeg"
-                                   usemap="#orcid-client-group-1_0_xsd_Element_orcid_group-name" /><map name="orcid-client-group-1_0_xsd_Element_orcid_group-name"
-                                   id="orcid-client-group-1_0_xsd_Element_orcid_group-name">
-                                 <area alt="orcid-client-group-1_0_xsd.tmp#short-text"
-                                       href="orcid-client-group-1_0_xsd.html#short-text"
+                                   src="img/orcid-client-group-1_1_xsd_Element_orcid_group-name.jpeg"
+                                   usemap="#orcid-client-group-1_1_xsd_Element_orcid_group-name" /><map name="orcid-client-group-1_1_xsd_Element_orcid_group-name"
+                                   id="orcid-client-group-1_1_xsd_Element_orcid_group-name">
+                                 <area alt="orcid-client-group-1_1_xsd.tmp#short-text"
+                                       href="orcid-client-group-1_1_xsd.html#short-text"
                                        coords="185,9,314,35" /></map></div>
                         </td>
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Type</b></td>
-                        <td><b><a href="orcid-client-group-1_0_xsd.html#short-text" target="mainFrame"
+                        <td><b><a href="orcid-client-group-1_1_xsd.html#short-text" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:short-text</a></b></td>
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:short-text</a></b></td>
                      </tr>
                      <tr>
                         <td class="firstColumn">
@@ -941,9 +951,9 @@
                               <table class="usedByTable">
                                  <tr>
                                     <td class="firstColumn">Element </td>
-                                    <td><b><a href="orcid-client-group-1_0_xsd.html#orcid-client-group" target="mainFrame"
+                                    <td><b><a href="orcid-client-group-1_1_xsd.html#orcid-client-group" target="mainFrame"
                                              title="http://www.orcid.org/ns/orcid"
-                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:orcid-client-group</a></b></td>
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:orcid-client-group</a></b></td>
                                  </tr>
                               </table>
                            </div>
@@ -1026,20 +1036,20 @@
                         </td>
                         <td class="diagram">
                            <div id="diagram_email" style="display:block"><img alt="Diagram" border="0"
-                                   src="img/orcid-client-group-1_0_xsd_Element_orcid_email.jpeg"
-                                   usemap="#orcid-client-group-1_0_xsd_Element_orcid_email" /><map name="orcid-client-group-1_0_xsd_Element_orcid_email"
-                                   id="orcid-client-group-1_0_xsd_Element_orcid_email">
-                                 <area alt="orcid-client-group-1_0_xsd.tmp#http___www.orcid.org_ns_orcid_email"
-                                       href="orcid-client-group-1_0_xsd.html#http___www.orcid.org_ns_orcid_email"
+                                   src="img/orcid-client-group-1_1_xsd_Element_orcid_email.jpeg"
+                                   usemap="#orcid-client-group-1_1_xsd_Element_orcid_email" /><map name="orcid-client-group-1_1_xsd_Element_orcid_email"
+                                   id="orcid-client-group-1_1_xsd_Element_orcid_email">
+                                 <area alt="orcid-client-group-1_1_xsd.tmp#http___www.orcid.org_ns_orcid_email"
+                                       href="orcid-client-group-1_1_xsd.html#http___www.orcid.org_ns_orcid_email"
                                        coords="162,9,268,35" /></map></div>
                         </td>
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Type</b></td>
-                        <td><b><a href="orcid-client-group-1_0_xsd.html#http___www.orcid.org_ns_orcid_email"
+                        <td><b><a href="orcid-client-group-1_1_xsd.html#http___www.orcid.org_ns_orcid_email"
                                  target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:email</a></b></td>
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:email</a></b></td>
                      </tr>
                      <tr>
                         <td class="firstColumn">
@@ -1094,9 +1104,9 @@
                               <table class="usedByTable">
                                  <tr>
                                     <td class="firstColumn">Element </td>
-                                    <td><b><a href="orcid-client-group-1_0_xsd.html#orcid-client-group" target="mainFrame"
+                                    <td><b><a href="orcid-client-group-1_1_xsd.html#orcid-client-group" target="mainFrame"
                                              title="http://www.orcid.org/ns/orcid"
-                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:orcid-client-group</a></b></td>
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:orcid-client-group</a></b></td>
                                  </tr>
                               </table>
                            </div>
@@ -1159,29 +1169,29 @@
                         </td>
                         <td class="diagram">
                            <div id="diagram_orcid-client" style="display:block"><img alt="Diagram" border="0"
-                                   src="img/orcid-client-group-1_0_xsd_Element_orcid_orcid-client.jpeg"
-                                   usemap="#orcid-client-group-1_0_xsd_Element_orcid_orcid-client" /><map name="orcid-client-group-1_0_xsd_Element_orcid_orcid-client"
-                                   id="orcid-client-group-1_0_xsd_Element_orcid_orcid-client">
-                                 <area alt="orcid-client-group-1_0_xsd.tmp#orcid-client_type"
-                                       href="orcid-client-group-1_0_xsd.html#orcid-client_type"
+                                   src="img/orcid-client-group-1_1_xsd_Element_orcid_orcid-client.jpeg"
+                                   usemap="#orcid-client-group-1_1_xsd_Element_orcid_orcid-client" /><map name="orcid-client-group-1_1_xsd_Element_orcid_orcid-client"
+                                   id="orcid-client-group-1_1_xsd_Element_orcid_orcid-client">
+                                 <area alt="orcid-client-group-1_1_xsd.tmp#orcid-client_type"
+                                       href="orcid-client-group-1_1_xsd.html#orcid-client_type"
                                        coords="126,41,266,85" />
-                                 <area alt="orcid-client-group-1_0_xsd.tmp#display-name"
-                                       href="orcid-client-group-1_0_xsd.html#display-name"
+                                 <area alt="orcid-client-group-1_1_xsd.tmp#display-name"
+                                       href="orcid-client-group-1_1_xsd.html#display-name"
                                        coords="183,102,320,146" />
-                                 <area alt="orcid-client-group-1_0_xsd.tmp#website"
-                                       href="orcid-client-group-1_0_xsd.html#website"
+                                 <area alt="orcid-client-group-1_1_xsd.tmp#website"
+                                       href="orcid-client-group-1_1_xsd.html#website"
                                        coords="183,201,295,245" />
-                                 <area alt="orcid-client-group-1_0_xsd.tmp#short-description"
-                                       href="orcid-client-group-1_0_xsd.html#short-description"
+                                 <area alt="orcid-client-group-1_1_xsd.tmp#short-description"
+                                       href="orcid-client-group-1_1_xsd.html#short-description"
                                        coords="183,300,323,344" />
-                                 <area alt="orcid-client-group-1_0_xsd.tmp#redirect-uris"
-                                       href="orcid-client-group-1_0_xsd.html#redirect-uris"
+                                 <area alt="orcid-client-group-1_1_xsd.tmp#redirect-uris"
+                                       href="orcid-client-group-1_1_xsd.html#redirect-uris"
                                        coords="183,399,300,424" />
-                                 <area alt="orcid-client-group-1_0_xsd.tmp#client-id"
-                                       href="orcid-client-group-1_0_xsd.html#client-id"
+                                 <area alt="orcid-client-group-1_1_xsd.tmp#client-id"
+                                       href="orcid-client-group-1_1_xsd.html#client-id"
                                        coords="183,479,297,523" />
-                                 <area alt="orcid-client-group-1_0_xsd.tmp#client-secret"
-                                       href="orcid-client-group-1_0_xsd.html#client-secret"
+                                 <area alt="orcid-client-group-1_1_xsd.tmp#client-secret"
+                                       href="orcid-client-group-1_1_xsd.html#client-secret"
                                        coords="183,592,320,636" /></map></div>
                         </td>
                      </tr>
@@ -1217,9 +1227,9 @@
                               <table class="usedByTable">
                                  <tr>
                                     <td class="firstColumn">Element </td>
-                                    <td><b><a href="orcid-client-group-1_0_xsd.html#orcid-client-group" target="mainFrame"
+                                    <td><b><a href="orcid-client-group-1_1_xsd.html#orcid-client-group" target="mainFrame"
                                              title="http://www.orcid.org/ns/orcid"
-                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:orcid-client-group</a></b></td>
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:orcid-client-group</a></b></td>
                                  </tr>
                               </table>
                            </div>
@@ -1227,35 +1237,35 @@
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Model</b></td>
-                        <td><b><a href="orcid-client-group-1_0_xsd.html#display-name" target="mainFrame"
+                        <td><b><a href="orcid-client-group-1_1_xsd.html#display-name" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:display-name</a></b> , <b><a href="orcid-client-group-1_0_xsd.html#website" target="mainFrame"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:display-name</a></b> , <b><a href="orcid-client-group-1_1_xsd.html#website" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:website</a></b> , <b><a href="orcid-client-group-1_0_xsd.html#short-description" target="mainFrame"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:website</a></b> , <b><a href="orcid-client-group-1_1_xsd.html#short-description" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:short-description</a></b> , <b><a href="orcid-client-group-1_0_xsd.html#redirect-uris" target="mainFrame"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:short-description</a></b> , <b><a href="orcid-client-group-1_1_xsd.html#redirect-uris" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:redirect-uris</a></b> , <b><a href="orcid-client-group-1_0_xsd.html#client-id" target="mainFrame"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:redirect-uris</a></b> , <b><a href="orcid-client-group-1_1_xsd.html#client-id" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:client-id{0,1}</a></b> , <b><a href="orcid-client-group-1_0_xsd.html#client-secret" target="mainFrame"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:client-id{0,1}</a></b> , <b><a href="orcid-client-group-1_1_xsd.html#client-secret" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:client-secret{0,1}</a></b></td>
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:client-secret{0,1}</a></b></td>
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Children</b></td>
-                        <td><b><a href="orcid-client-group-1_0_xsd.html#client-id" target="mainFrame"
+                        <td><b><a href="orcid-client-group-1_1_xsd.html#client-id" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:client-id</a></b>, <b><a href="orcid-client-group-1_0_xsd.html#client-secret" target="mainFrame"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:client-id</a></b>, <b><a href="orcid-client-group-1_1_xsd.html#client-secret" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:client-secret</a></b>, <b><a href="orcid-client-group-1_0_xsd.html#display-name" target="mainFrame"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:client-secret</a></b>, <b><a href="orcid-client-group-1_1_xsd.html#display-name" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:display-name</a></b>, <b><a href="orcid-client-group-1_0_xsd.html#redirect-uris" target="mainFrame"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:display-name</a></b>, <b><a href="orcid-client-group-1_1_xsd.html#redirect-uris" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:redirect-uris</a></b>, <b><a href="orcid-client-group-1_0_xsd.html#short-description" target="mainFrame"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:redirect-uris</a></b>, <b><a href="orcid-client-group-1_1_xsd.html#short-description" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:short-description</a></b>, <b><a href="orcid-client-group-1_0_xsd.html#website" target="mainFrame"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:short-description</a></b>, <b><a href="orcid-client-group-1_1_xsd.html#website" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:website</a></b></td>
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:website</a></b></td>
                      </tr>
                      <tr>
                         <td class="firstColumn">
@@ -1303,12 +1313,12 @@
                                     </tr>
                                  </thead>
                                  <tr>
-                                    <td class="firstColumn"><b><a href="orcid-client-group-1_0_xsd.html#orcid-client_type" target="mainFrame"
+                                    <td class="firstColumn"><b><a href="orcid-client-group-1_1_xsd.html#orcid-client_type" target="mainFrame"
                                              title="No namespace"
-                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">type</a></b></td>
-                                    <td><b><a href="orcid-client-group-1_0_xsd.html#client-type" target="mainFrame"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">type</a></b></td>
+                                    <td><b><a href="orcid-client-group-1_1_xsd.html#client-type" target="mainFrame"
                                              title="http://www.orcid.org/ns/orcid"
-                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:client-type</a></b></td>
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:client-type</a></b></td>
                                     <td></td>
                                     <td></td>
                                     <td>optional</td>
@@ -1405,19 +1415,19 @@
                         </td>
                         <td class="diagram">
                            <div id="diagram_display-name" style="display:block"><img alt="Diagram" border="0"
-                                   src="img/orcid-client-group-1_0_xsd_Element_orcid_display-name.jpeg"
-                                   usemap="#orcid-client-group-1_0_xsd_Element_orcid_display-name" /><map name="orcid-client-group-1_0_xsd_Element_orcid_display-name"
-                                   id="orcid-client-group-1_0_xsd_Element_orcid_display-name">
-                                 <area alt="orcid-client-group-1_0_xsd.tmp#short-text"
-                                       href="orcid-client-group-1_0_xsd.html#short-text"
+                                   src="img/orcid-client-group-1_1_xsd_Element_orcid_display-name.jpeg"
+                                   usemap="#orcid-client-group-1_1_xsd_Element_orcid_display-name" /><map name="orcid-client-group-1_1_xsd_Element_orcid_display-name"
+                                   id="orcid-client-group-1_1_xsd_Element_orcid_display-name">
+                                 <area alt="orcid-client-group-1_1_xsd.tmp#short-text"
+                                       href="orcid-client-group-1_1_xsd.html#short-text"
                                        coords="185,9,314,35" /></map></div>
                         </td>
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Type</b></td>
-                        <td><b><a href="orcid-client-group-1_0_xsd.html#short-text" target="mainFrame"
+                        <td><b><a href="orcid-client-group-1_1_xsd.html#short-text" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:short-text</a></b></td>
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:short-text</a></b></td>
                      </tr>
                      <tr>
                         <td class="firstColumn">
@@ -1479,9 +1489,9 @@
                               <table class="usedByTable">
                                  <tr>
                                     <td class="firstColumn">Element </td>
-                                    <td><b><a href="orcid-client-group-1_0_xsd.html#orcid-client" target="mainFrame"
+                                    <td><b><a href="orcid-client-group-1_1_xsd.html#orcid-client" target="mainFrame"
                                              title="http://www.orcid.org/ns/orcid"
-                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:orcid-client</a></b></td>
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:orcid-client</a></b></td>
                                  </tr>
                               </table>
                            </div>
@@ -1566,7 +1576,7 @@
                         </td>
                         <td class="diagram">
                            <div id="diagram_website" style="display:block"><img alt="Diagram" border="0"
-                                   src="img/orcid-client-group-1_0_xsd_Element_orcid_website.jpeg" /></div>
+                                   src="img/orcid-client-group-1_1_xsd_Element_orcid_website.jpeg" /></div>
                         </td>
                      </tr>
                      <tr>
@@ -1605,9 +1615,9 @@
                               <table class="usedByTable">
                                  <tr>
                                     <td class="firstColumn">Element </td>
-                                    <td><b><a href="orcid-client-group-1_0_xsd.html#orcid-client" target="mainFrame"
+                                    <td><b><a href="orcid-client-group-1_1_xsd.html#orcid-client" target="mainFrame"
                                              title="http://www.orcid.org/ns/orcid"
-                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:orcid-client</a></b></td>
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:orcid-client</a></b></td>
                                  </tr>
                               </table>
                            </div>
@@ -1692,19 +1702,19 @@
                         </td>
                         <td class="diagram">
                            <div id="diagram_short-description" style="display:block"><img alt="Diagram" border="0"
-                                   src="img/orcid-client-group-1_0_xsd_Element_orcid_short-description.jpeg"
-                                   usemap="#orcid-client-group-1_0_xsd_Element_orcid_short-description" /><map name="orcid-client-group-1_0_xsd_Element_orcid_short-description"
-                                   id="orcid-client-group-1_0_xsd_Element_orcid_short-description">
-                                 <area alt="orcid-client-group-1_0_xsd.tmp#short-text"
-                                       href="orcid-client-group-1_0_xsd.html#short-text"
+                                   src="img/orcid-client-group-1_1_xsd_Element_orcid_short-description.jpeg"
+                                   usemap="#orcid-client-group-1_1_xsd_Element_orcid_short-description" /><map name="orcid-client-group-1_1_xsd_Element_orcid_short-description"
+                                   id="orcid-client-group-1_1_xsd_Element_orcid_short-description">
+                                 <area alt="orcid-client-group-1_1_xsd.tmp#short-text"
+                                       href="orcid-client-group-1_1_xsd.html#short-text"
                                        coords="185,9,314,35" /></map></div>
                         </td>
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Type</b></td>
-                        <td><b><a href="orcid-client-group-1_0_xsd.html#short-text" target="mainFrame"
+                        <td><b><a href="orcid-client-group-1_1_xsd.html#short-text" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:short-text</a></b></td>
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:short-text</a></b></td>
                      </tr>
                      <tr>
                         <td class="firstColumn">
@@ -1767,9 +1777,9 @@
                               <table class="usedByTable">
                                  <tr>
                                     <td class="firstColumn">Element </td>
-                                    <td><b><a href="orcid-client-group-1_0_xsd.html#orcid-client" target="mainFrame"
+                                    <td><b><a href="orcid-client-group-1_1_xsd.html#orcid-client" target="mainFrame"
                                              title="http://www.orcid.org/ns/orcid"
-                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:orcid-client</a></b></td>
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:orcid-client</a></b></td>
                                  </tr>
                               </table>
                            </div>
@@ -1853,12 +1863,12 @@
                         </td>
                         <td class="diagram">
                            <div id="diagram_redirect-uris" style="display:block"><img alt="Diagram" border="0"
-                                   src="img/orcid-client-group-1_0_xsd_Element_orcid_redirect-uris.jpeg"
-                                   usemap="#orcid-client-group-1_0_xsd_Element_orcid_redirect-uris" /><map name="orcid-client-group-1_0_xsd_Element_orcid_redirect-uris"
-                                   id="orcid-client-group-1_0_xsd_Element_orcid_redirect-uris">
-                                 <area alt="orcid-client-group-1_0_xsd.tmp#redirect-uri"
-                                       href="orcid-client-group-1_0_xsd.html#redirect-uri"
-                                       coords="229,2,341,46" /></map></div>
+                                   src="img/orcid-client-group-1_1_xsd_Element_orcid_redirect-uris.jpeg"
+                                   usemap="#orcid-client-group-1_1_xsd_Element_orcid_redirect-uris" /><map name="orcid-client-group-1_1_xsd_Element_orcid_redirect-uris"
+                                   id="orcid-client-group-1_1_xsd_Element_orcid_redirect-uris">
+                                 <area alt="orcid-client-group-1_1_xsd.tmp#redirect-uri"
+                                       href="orcid-client-group-1_1_xsd.html#redirect-uri"
+                                       coords="229,2,408,46" /></map></div>
                         </td>
                      </tr>
                      <tr>
@@ -1893,9 +1903,9 @@
                               <table class="usedByTable">
                                  <tr>
                                     <td class="firstColumn">Element </td>
-                                    <td><b><a href="orcid-client-group-1_0_xsd.html#orcid-client" target="mainFrame"
+                                    <td><b><a href="orcid-client-group-1_1_xsd.html#orcid-client" target="mainFrame"
                                              title="http://www.orcid.org/ns/orcid"
-                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:orcid-client</a></b></td>
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:orcid-client</a></b></td>
                                  </tr>
                               </table>
                            </div>
@@ -1903,15 +1913,15 @@
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Model</b></td>
-                        <td><b><a href="orcid-client-group-1_0_xsd.html#redirect-uri" target="mainFrame"
+                        <td><b><a href="orcid-client-group-1_1_xsd.html#redirect-uri" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:redirect-uri+</a></b></td>
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:redirect-uri+</a></b></td>
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Children</b></td>
-                        <td><b><a href="orcid-client-group-1_0_xsd.html#redirect-uri" target="mainFrame"
+                        <td><b><a href="orcid-client-group-1_1_xsd.html#redirect-uri" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:redirect-uri</a></b></td>
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:redirect-uri</a></b></td>
                      </tr>
                      <tr>
                         <td class="firstColumn">
@@ -1926,7 +1936,7 @@
                                      class="preWrapContainer">
                                  <tr>
                                     <td width="100%"><pre><span class="tEl">&lt;orcid:redirect-uris</span><span class="tEl">&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;orcid:redirect-uri</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,unbounded}</span><span class="tEl">&lt;/orcid:redirect-uri&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;orcid:redirect-uri</span><span class="tT"> </span><span class="tAN">scope=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,unbounded}</span><span class="tEl">&lt;/orcid:redirect-uri&gt;</span><span class="tI">
 </span><span class="tEl">&lt;/orcid:redirect-uris&gt;</span></pre></td>
                                  </tr>
                               </table>
@@ -1995,12 +2005,17 @@
                         </td>
                         <td class="diagram">
                            <div id="diagram_redirect-uri" style="display:block"><img alt="Diagram" border="0"
-                                   src="img/orcid-client-group-1_0_xsd_Element_orcid_redirect-uri.jpeg" /></div>
+                                   src="img/orcid-client-group-1_1_xsd_Element_orcid_redirect-uri.jpeg"
+                                   usemap="#orcid-client-group-1_1_xsd_Element_orcid_redirect-uri" /><map name="orcid-client-group-1_1_xsd_Element_orcid_redirect-uri"
+                                   id="orcid-client-group-1_1_xsd_Element_orcid_redirect-uri">
+                                 <area alt="orcid-client-group-1_1_xsd.tmp#redirect-uri_scope"
+                                       href="orcid-client-group-1_1_xsd.html#redirect-uri_scope"
+                                       coords="221,122,341,166" /></map></div>
                         </td>
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Type</b></td>
-                        <td><b>xs:anyURI</b></td>
+                        <td>extension of <b>xs:anyURI</b></td>
                      </tr>
                      <tr>
                         <td class="firstColumn">
@@ -2016,7 +2031,7 @@
                                     <td class="firstColumn">content:
                                        
                                     </td>
-                                    <td><b>simple</b></td>
+                                    <td><b>complex</b></td>
                                  </tr>
                               </table>
                            </div>
@@ -2034,9 +2049,47 @@
                               <table class="usedByTable">
                                  <tr>
                                     <td class="firstColumn">Element </td>
-                                    <td><b><a href="orcid-client-group-1_0_xsd.html#redirect-uris" target="mainFrame"
+                                    <td><b><a href="orcid-client-group-1_1_xsd.html#redirect-uris" target="mainFrame"
                                              title="http://www.orcid.org/ns/orcid"
-                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:redirect-uris</a></b></td>
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:redirect-uris</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Attributes</b></div>
+                           <div class="floatRight"><input id="button_attributes_redirect-uri" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('attributes_redirect-uri');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="attributes_redirect-uri" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Type</th>
+                                       <th>Fixed</th>
+                                       <th>Default</th>
+                                       <th>Use</th>
+                                       <th>Annotation</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn"><b><a href="orcid-client-group-1_1_xsd.html#redirect-uri_scope" target="mainFrame"
+                                             title="No namespace"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">scope</a></b></td>
+                                    <td><b><a href="orcid-client-group-1_1_xsd.html#scope" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:scope</a></b></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>optional</td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
                                  </tr>
                               </table>
                            </div>
@@ -2054,7 +2107,15 @@
                               <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
                                      class="preWrapContainer">
                                  <tr>
-                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"redirect-uri"</span><span class="tAN"> type=</span><span class="tAV">"xs:anyURI"</span><span class="tEl">/&gt;</span></pre></td>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"redirect-uri"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:simpleContent</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:extension</span><span class="tAN"> base=</span><span class="tAV">"xs:anyURI"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"scope"</span><span class="tAN"> type=</span><span class="tAV">"orcid:scope"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:extension&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:simpleContent&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
                                  </tr>
                               </table>
                            </div>
@@ -2115,19 +2176,19 @@
                         </td>
                         <td class="diagram">
                            <div id="diagram_client-id" style="display:block"><img alt="Diagram" border="0"
-                                   src="img/orcid-client-group-1_0_xsd_Element_orcid_client-id.jpeg"
-                                   usemap="#orcid-client-group-1_0_xsd_Element_orcid_client-id" /><map name="orcid-client-group-1_0_xsd_Element_orcid_client-id"
-                                   id="orcid-client-group-1_0_xsd_Element_orcid_client-id">
-                                 <area alt="orcid-client-group-1_0_xsd.tmp#orcid"
-                                       href="orcid-client-group-1_0_xsd.html#orcid"
+                                   src="img/orcid-client-group-1_1_xsd_Element_orcid_client-id.jpeg"
+                                   usemap="#orcid-client-group-1_1_xsd_Element_orcid_client-id" /><map name="orcid-client-group-1_1_xsd_Element_orcid_client-id"
+                                   id="orcid-client-group-1_1_xsd_Element_orcid_client-id">
+                                 <area alt="orcid-client-group-1_1_xsd.tmp#orcid"
+                                       href="orcid-client-group-1_1_xsd.html#orcid"
                                        coords="162,9,268,35" /></map></div>
                         </td>
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Type</b></td>
-                        <td><b><a href="orcid-client-group-1_0_xsd.html#orcid" target="mainFrame"
+                        <td><b><a href="orcid-client-group-1_1_xsd.html#orcid" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:orcid</a></b></td>
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:orcid</a></b></td>
                      </tr>
                      <tr>
                         <td class="firstColumn">
@@ -2182,9 +2243,9 @@
                               <table class="usedByTable">
                                  <tr>
                                     <td class="firstColumn">Element </td>
-                                    <td><b><a href="orcid-client-group-1_0_xsd.html#orcid-client" target="mainFrame"
+                                    <td><b><a href="orcid-client-group-1_1_xsd.html#orcid-client" target="mainFrame"
                                              title="http://www.orcid.org/ns/orcid"
-                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:orcid-client</a></b></td>
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:orcid-client</a></b></td>
                                  </tr>
                               </table>
                            </div>
@@ -2271,19 +2332,19 @@
                         </td>
                         <td class="diagram">
                            <div id="diagram_client-secret" style="display:block"><img alt="Diagram" border="0"
-                                   src="img/orcid-client-group-1_0_xsd_Element_orcid_client-secret.jpeg"
-                                   usemap="#orcid-client-group-1_0_xsd_Element_orcid_client-secret" /><map name="orcid-client-group-1_0_xsd_Element_orcid_client-secret"
-                                   id="orcid-client-group-1_0_xsd_Element_orcid_client-secret">
-                                 <area alt="orcid-client-group-1_0_xsd.tmp#short-text"
-                                       href="orcid-client-group-1_0_xsd.html#short-text"
+                                   src="img/orcid-client-group-1_1_xsd_Element_orcid_client-secret.jpeg"
+                                   usemap="#orcid-client-group-1_1_xsd_Element_orcid_client-secret" /><map name="orcid-client-group-1_1_xsd_Element_orcid_client-secret"
+                                   id="orcid-client-group-1_1_xsd_Element_orcid_client-secret">
+                                 <area alt="orcid-client-group-1_1_xsd.tmp#short-text"
+                                       href="orcid-client-group-1_1_xsd.html#short-text"
                                        coords="185,9,314,35" /></map></div>
                         </td>
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Type</b></td>
-                        <td><b><a href="orcid-client-group-1_0_xsd.html#short-text" target="mainFrame"
+                        <td><b><a href="orcid-client-group-1_1_xsd.html#short-text" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:short-text</a></b></td>
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:short-text</a></b></td>
                      </tr>
                      <tr>
                         <td class="firstColumn">
@@ -2345,9 +2406,9 @@
                               <table class="usedByTable">
                                  <tr>
                                     <td class="firstColumn">Element </td>
-                                    <td><b><a href="orcid-client-group-1_0_xsd.html#orcid-client" target="mainFrame"
+                                    <td><b><a href="orcid-client-group-1_1_xsd.html#orcid-client" target="mainFrame"
                                              title="http://www.orcid.org/ns/orcid"
-                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:orcid-client</a></b></td>
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:orcid-client</a></b></td>
                                  </tr>
                               </table>
                            </div>
@@ -2410,7 +2471,7 @@
                         </td>
                         <td class="diagram">
                            <div id="diagram_orcid" style="display:block"><img alt="Diagram" border="0"
-                                   src="img/orcid-client-group-1_0_xsd_Simple_Type_orcid_orcid.jpeg" /></div>
+                                   src="img/orcid-client-group-1_1_xsd_Simple_Type_orcid_orcid.jpeg" /></div>
                         </td>
                      </tr>
                      <tr>
@@ -2450,11 +2511,11 @@
                               <table class="usedByTable">
                                  <tr>
                                     <td class="firstColumn">Elements </td>
-                                    <td><b><a href="orcid-client-group-1_0_xsd.html#client-id" target="mainFrame"
+                                    <td><b><a href="orcid-client-group-1_1_xsd.html#client-id" target="mainFrame"
                                              title="http://www.orcid.org/ns/orcid"
-                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:client-id</a></b>, <b><a href="orcid-client-group-1_0_xsd.html#group-orcid" target="mainFrame"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:client-id</a></b>, <b><a href="orcid-client-group-1_1_xsd.html#group-orcid" target="mainFrame"
                                              title="http://www.orcid.org/ns/orcid"
-                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:group-orcid</a></b></td>
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:group-orcid</a></b></td>
                                  </tr>
                               </table>
                            </div>
@@ -2517,7 +2578,7 @@
                         </td>
                         <td class="diagram">
                            <div id="diagram_short-text" style="display:block"><img alt="Diagram" border="0"
-                                   src="img/orcid-client-group-1_0_xsd_Simple_Type_orcid_short-text.jpeg" /></div>
+                                   src="img/orcid-client-group-1_1_xsd_Simple_Type_orcid_short-text.jpeg" /></div>
                         </td>
                      </tr>
                      <tr>
@@ -2564,15 +2625,15 @@
                               <table class="usedByTable">
                                  <tr>
                                     <td class="firstColumn">Elements </td>
-                                    <td><b><a href="orcid-client-group-1_0_xsd.html#client-secret" target="mainFrame"
+                                    <td><b><a href="orcid-client-group-1_1_xsd.html#client-secret" target="mainFrame"
                                              title="http://www.orcid.org/ns/orcid"
-                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:client-secret</a></b>, <b><a href="orcid-client-group-1_0_xsd.html#display-name" target="mainFrame"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:client-secret</a></b>, <b><a href="orcid-client-group-1_1_xsd.html#display-name" target="mainFrame"
                                              title="http://www.orcid.org/ns/orcid"
-                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:display-name</a></b>, <b><a href="orcid-client-group-1_0_xsd.html#group-name" target="mainFrame"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:display-name</a></b>, <b><a href="orcid-client-group-1_1_xsd.html#group-name" target="mainFrame"
                                              title="http://www.orcid.org/ns/orcid"
-                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:group-name</a></b>, <b><a href="orcid-client-group-1_0_xsd.html#short-description" target="mainFrame"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:group-name</a></b>, <b><a href="orcid-client-group-1_1_xsd.html#short-description" target="mainFrame"
                                              title="http://www.orcid.org/ns/orcid"
-                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:short-description</a></b></td>
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:short-description</a></b></td>
                                  </tr>
                               </table>
                            </div>
@@ -2638,7 +2699,7 @@
                         </td>
                         <td class="diagram">
                            <div id="diagram_http___www.orcid.org_ns_orcid_email" style="display:block"><img alt="Diagram" border="0"
-                                   src="img/orcid-client-group-1_0_xsd_Simple_Type_orcid_email.jpeg" /></div>
+                                   src="img/orcid-client-group-1_1_xsd_Simple_Type_orcid_email.jpeg" /></div>
                         </td>
                      </tr>
                      <tr>
@@ -2682,9 +2743,9 @@
                               <table class="usedByTable">
                                  <tr>
                                     <td class="firstColumn">Element </td>
-                                    <td><b><a href="orcid-client-group-1_0_xsd.html#email" target="mainFrame"
+                                    <td><b><a href="orcid-client-group-1_1_xsd.html#email" target="mainFrame"
                                              title="http://www.orcid.org/ns/orcid"
-                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:email</a></b></td>
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:email</a></b></td>
                                  </tr>
                               </table>
                            </div>
@@ -2708,6 +2769,95 @@
   </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
     </span><span class="tEl">&lt;xs:pattern</span><span class="tAN"> value=</span><span class="tAV">"[^@]+@[^\.]+\..+"</span><span class="tEl">/&gt;</span><span class="tI">
   </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="scope"></a><div class="componentTitle">Simple Type <span class="qname">orcid:scope</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.orcid.org/ns/orcid</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_scope" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('diagram_scope');"
+                                     class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_scope" style="display:block"><img alt="Diagram" border="0"
+                                   src="img/orcid-client-group-1_1_xsd_Simple_Type_orcid_scope.jpeg"
+                                   usemap="#orcid-client-group-1_1_xsd_Simple_Type_orcid_scope" /><map name="orcid-client-group-1_1_xsd_Simple_Type_orcid_scope"
+                                   id="orcid-client-group-1_1_xsd_Simple_Type_orcid_scope">
+                                 <area alt="orcid-client-group-1_1_xsd.tmp#scope-path-type"
+                                       href="orcid-client-group-1_1_xsd.html#scope-path-type"
+                                       coords="113,0,275,26" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>list of <b><a href="orcid-client-group-1_1_xsd.html#scope-path-type" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:scope-path-type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_scope" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('usedBy_scope');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_scope" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Attribute </td>
+                                    <td><b><a href="orcid-client-group-1_1_xsd.html#redirect-uri_scope" target="mainFrame"
+                                             title="No namespace"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:redirect-uri/@scope</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_scope" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('source_scope');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_scope" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                     class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"scope"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:list</span><span class="tAN"> itemType=</span><span class="tAV">"orcid:scope-path-type"</span><span class="tEl">/&gt;</span><span class="tI">
 </span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre></td>
                                  </tr>
                               </table>
@@ -2749,7 +2899,7 @@
                         </td>
                         <td class="diagram">
                            <div id="diagram_client-type" style="display:block"><img alt="Diagram" border="0"
-                                   src="img/orcid-client-group-1_0_xsd_Simple_Type_orcid_client-type.jpeg" /></div>
+                                   src="img/orcid-client-group-1_1_xsd_Simple_Type_orcid_client-type.jpeg" /></div>
                         </td>
                      </tr>
                      <tr>
@@ -2796,9 +2946,9 @@
                               <table class="usedByTable">
                                  <tr>
                                     <td class="firstColumn">Attribute </td>
-                                    <td><b><a href="orcid-client-group-1_0_xsd.html#orcid-client_type" target="mainFrame"
+                                    <td><b><a href="orcid-client-group-1_1_xsd.html#orcid-client_type" target="mainFrame"
                                              title="No namespace"
-                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:orcid-client/@type</a></b></td>
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:orcid-client/@type</a></b></td>
                                  </tr>
                               </table>
                            </div>
@@ -2837,9 +2987,206 @@
             <td class="rt_lineBottom"></td>
             <td class="rt_cornerBottomRight"></td>
          </tr>
-      </table><a id="orcid-client_type"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="orcid-client-group-1_0_xsd.html#orcid-client" target="mainFrame"
+      </table><a id="scope-path-type"></a><div class="componentTitle">Simple Type <span class="qname">orcid:scope-path-type</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.orcid.org/ns/orcid</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_scope-path-type" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('diagram_scope-path-type');"
+                                     class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_scope-path-type" style="display:block"><img alt="Diagram" border="0"
+                                   src="img/orcid-client-group-1_1_xsd_Simple_Type_orcid_scope-path-type.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>restriction of <b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_scope-path-type" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('facets_scope-path-type');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_scope-path-type" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>/authenticate</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>/orcid-bio/read-limited</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>/orcid-profile/read-limited</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>/orcid-works/read-limited</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>/orcid-grants/read-limited</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>/orcid-patents/read-limited</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>/orcid-works/update</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>/orcid-grants/update</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>/orcid-patents/update</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>/orcid-bio/external-identifiers/create</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>/orcid-bio/update</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>/orcid-works/create</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>/orcid-grants/create</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>/orcid-patents/create</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>/orcid-profile/create</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_scope-path-type" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('source_scope-path-type');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_scope-path-type" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                     class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"scope-path-type"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"/authenticate"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"/orcid-bio/read-limited"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"/orcid-profile/read-limited"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"/orcid-works/read-limited"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"/orcid-grants/read-limited"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"/orcid-patents/read-limited"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"/orcid-works/update"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"/orcid-grants/update"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"/orcid-patents/update"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"/orcid-bio/external-identifiers/create"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"/orcid-bio/update"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"/orcid-works/create"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"/orcid-grants/create"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"/orcid-patents/create"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"/orcid-profile/create"</span><span class="tEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="redirect-uri_scope"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="orcid-client-group-1_1_xsd.html#redirect-uri" target="mainFrame"
                   title="http://www.orcid.org/ns/orcid"
-                  onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:orcid-client</a></b> / @type</span></div>
+                  onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:redirect-uri</a></b> / @scope</span></div>
       <table class="rt">
          <tr>
             <td class="rt_cornerTopLeft"></td>
@@ -2857,9 +3204,102 @@
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Type</b></td>
-                        <td><b><a href="orcid-client-group-1_0_xsd.html#client-type" target="mainFrame"
+                        <td><b><a href="orcid-client-group-1_1_xsd.html#scope" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:client-type</a></b></td>
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:scope</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_redirect-uri_scope" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('properties_redirect-uri_scope');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_redirect-uri_scope" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn">content:
+                                       
+                                    </td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_redirect-uri_scope" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('usedBy_redirect-uri_scope');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_redirect-uri_scope" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="orcid-client-group-1_1_xsd.html#redirect-uri" target="mainFrame"
+                                             title="http://www.orcid.org/ns/orcid"
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:redirect-uri</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_redirect-uri_scope" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('source_redirect-uri_scope');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_redirect-uri_scope" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;"
+                                     class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"scope"</span><span class="tAN"> type=</span><span class="tAV">"orcid:scope"</span><span class="tEl">/&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="orcid-client_type"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="orcid-client-group-1_1_xsd.html#orcid-client" target="mainFrame"
+                  title="http://www.orcid.org/ns/orcid"
+                  onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:orcid-client</a></b> / @type</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="orcid-client-group-1_1_xsd.html#client-type" target="mainFrame"
+                                 title="http://www.orcid.org/ns/orcid"
+                                 onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:client-type</a></b></td>
                      </tr>
                      <tr>
                         <td class="firstColumn">
@@ -2922,9 +3362,9 @@
                               <table class="usedByTable">
                                  <tr>
                                     <td class="firstColumn">Element </td>
-                                    <td><b><a href="orcid-client-group-1_0_xsd.html#orcid-client" target="mainFrame"
+                                    <td><b><a href="orcid-client-group-1_1_xsd.html#orcid-client" target="mainFrame"
                                              title="http://www.orcid.org/ns/orcid"
-                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.0.xsd')">orcid:orcid-client</a></b></td>
+                                             onclick="updatePageTitle('Schema documentation for orcid-client-group-1.1.xsd')">orcid:orcid-client</a></b></td>
                                  </tr>
                               </table>
                            </div>
