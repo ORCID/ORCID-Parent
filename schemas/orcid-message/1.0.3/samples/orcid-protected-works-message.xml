@@ -37,9 +37,7 @@
                         <title>Neanderthal Man</title>
                     </work-title>
                     <work-citation>Carberry, Josiah S., John W. Spaeth, and Paulo Di Fillipo. "Neanderthal Man." Book of Prehistory. N.p.: Brown UP, 2012. 450-70. 09 Oct. 2012. Web.</work-citation>
-                    <work-type>
-                        <easybib-citation-type>chapter-anthology</easybib-citation-type>
-                    </work-type>
+                    <work-type>chapter-anthology</work-type>
                     <publication-date>
                         <year>2012</year>
                         <month>10</month>
@@ -82,9 +80,7 @@
                         <title>Bilocation</title>
                     </work-title>
                     <work-citation>Carberry, Josiah S. Bilocation. N.p.: Brown UP, 1934. 9 Oct. 1934. Web.</work-citation>
-                    <work-type>
-                        <easybib-citation-type>book</easybib-citation-type>
-                    </work-type>
+                    <work-type>book</work-type>
                     <publication-date>
                         <year>1934</year>
                         <month>10</month>
@@ -113,9 +109,7 @@
                         <title>Chromosome 5a55.5 microdeletions comprising AB555 and CD5555 are associated with bilocation ability</title>
                     </work-title>
                     <work-citation>Carberry, Josiah S., and Pflug RR Ackerstaff, VB. "Chromosome 5a55.5 Microdeletions Comprising AB555 and CD5555 Are Associated with Bilocation Ability." Genetics Journal 5.2 (1973): 45-46. Print.</work-citation>
-                    <work-type>
-                        <crossref-work-type>journal-article</crossref-work-type>
-                    </work-type>
+                    <work-type>journal-article</work-type>
                     <publication-date>
                         <year>1973</year>
                         <month>06</month>
