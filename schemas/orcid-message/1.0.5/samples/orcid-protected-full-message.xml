@@ -209,10 +209,7 @@
             </orcid-works>            
             <orcid-grants>
                 <orcid-grant visibility="public">
-                    <funding-agency>
-                        <agency-orcid>1111-1111-1111-1102</agency-orcid>
-                        <agency-name>Agency name</agency-name>
-                    </funding-agency>
+                    <funding-agency/>
                     <grant-external-identifier>
                         <grant-external-program>_REF</grant-external-program>
                         <grant-external-id>extId</grant-external-id>

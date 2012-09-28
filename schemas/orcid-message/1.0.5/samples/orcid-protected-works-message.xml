@@ -27,7 +27,7 @@
 <orcid-message xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://www.orcid.org/ns/orcid ../orcid-message-1.0.5.xsd"
  xmlns="http://www.orcid.org/ns/orcid">
-    <message-version>1.0.4</message-version>
+    <message-version>1.0.5</message-version>
     <orcid-profile>
         <orcid>4444-4444-4444-4446</orcid>
         <orcid-activities>
