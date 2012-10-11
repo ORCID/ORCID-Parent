@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    =============================================================================
+    Copyright (C) 2011-2012 by ORCID
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.
+    =============================================================================
+
+-->
+<orcid-message xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.orcid.org/ns/orcid ../orcid-message-1.0.6.xsd"
+    xmlns="http://www.orcid.org/ns/orcid">
+    <message-version>1.0.6</message-version>
+    <orcid-profile>
+        <orcid>4444-4444-4444-4446</orcid>
+        <orcid-activities>
+            <orcid-works scope="update">
+                <orcid-work visibility="public">
+                    <work-title>
+                        <title>Neanderthal Man</title>
+                    </work-title>
+                    <work-citation>
+                        <work-citation-type>formatted-unspecified</work-citation-type>
+                        <citation>Carberry, Josiah S., John W. Spaeth, and Paulo Di Fillipo. "Neanderthal Man." Book of Prehistory. N.p.: Brown UP, 2012. 450-70. 09 Oct. 2012. Web.</citation>
+                    </work-citation>
+                    <work-type>chapter-anthology</work-type>
+                    <publication-date>
+                        <year>2012</year>
+                        <month>10</month>
+                        <day>09</day>
+                    </publication-date>
+                    <work-external-identifiers>
+                        <work-external-identifier>
+                            <work-external-identifier-type>doi</work-external-identifier-type>
+                            <work-external-identifier-id>10.5555/12345ABCDE</work-external-identifier-id>
+                        </work-external-identifier>
+                    </work-external-identifiers>
+                    <work-contributors>
+                        <contributor>
+                            <contributor-orcid>4444-4444-4444-4449</contributor-orcid>
+                            <credit-name>J. S. Carberry</credit-name>
+                            <contributor-attributes>
+                                <contributor-sequence>first</contributor-sequence>
+                                <contributor-role>author</contributor-role>
+                            </contributor-attributes>
+                        </contributor>
+                        <contributor>
+                            <contributor-orcid>5555-5555-5555-555X</contributor-orcid>
+                            <credit-name>John W. Spaeth</credit-name>
+                            <contributor-attributes>
+                                <contributor-sequence>additional</contributor-sequence>
+                                <contributor-role>author</contributor-role>
+                            </contributor-attributes>
+                        </contributor>
+                        <contributor>
+                            <credit-name>Paul Di Filippo</credit-name>
+                            <contributor-attributes>
+                                <contributor-sequence>additional</contributor-sequence>
+                                <contributor-role>author</contributor-role>
+                            </contributor-attributes>
+                        </contributor>
+                    </work-contributors>
+                </orcid-work>
+                <orcid-work visibility="public">
+                    <work-title>
+                        <title>Bilocation</title>
+                    </work-title>
+                    <work-citation>
+                        <work-citation-type>formatted-harvard</work-citation-type>
+                        <citation>Carberry, Josiah S. Bilocation. N.p.: Brown UP, 1934. 9 Oct. 1934. Web.</citation>
+                    </work-citation>
+                    <work-type>book</work-type>
+                    <publication-date>
+                        <year>1934</year>
+                        <month>10</month>
+                        <day>09</day>
+                    </publication-date>
+                    <work-external-identifiers>
+                        <work-external-identifier>
+                            <work-external-identifier-type>doi</work-external-identifier-type>
+                            <work-external-identifier-id>10.5555/12345FGHIJ</work-external-identifier-id>
+                        </work-external-identifier>
+                    </work-external-identifiers>
+                    <url>http://somewhere.com/Bilocation</url>
+                    <work-contributors>
+                        <contributor>
+                            <contributor-orcid>4444-4444-4444-4446</contributor-orcid>
+                            <credit-name>J. S. Carberry</credit-name>
+                            <contributor-attributes>
+                                <contributor-sequence>first</contributor-sequence>
+                                <contributor-role>author</contributor-role>
+                            </contributor-attributes>
+                        </contributor>
+                    </work-contributors>
+                </orcid-work>
+                <orcid-work visibility="limited">
+                    <work-title>
+                        <title>Chromosome 5a55.5 microdeletions comprising AB555 and CD5555 are
+                            associated with bilocation ability</title>
+                    </work-title>
+                    <work-citation>
+                        <work-citation-type>formatted-ieee</work-citation-type>
+                        <citation>Carberry, Josiah S., and Pflug RR Ackerstaff, VB. "Chromosome 5a55.5 Microdeletions Comprising AB555 and CD5555 Are Associated with Bilocation Ability." Genetics Journal 5.2 (1973): 45-46. Print.</citation>
+                    </work-citation>
+                    <work-type>journal-article</work-type>
+                    <publication-date>
+                        <year>1973</year>
+                        <month>06</month>
+                        <day>02</day>
+                    </publication-date>
+                    <work-external-identifiers>
+                        <work-external-identifier>
+                            <work-external-identifier-type>doi</work-external-identifier-type>
+                            <work-external-identifier-id>10.5555/12345KLMNO</work-external-identifier-id>
+                        </work-external-identifier>
+                    </work-external-identifiers>
+                    <work-contributors>
+                        <contributor>
+                            <contributor-orcid>4444-4444-4444-4446</contributor-orcid>
+                            <credit-name>J. S. Carberry</credit-name>
+                            <contributor-attributes>
+                                <contributor-sequence>first</contributor-sequence>
+                                <contributor-role>author</contributor-role>
+                            </contributor-attributes>
+                        </contributor>
+                        <contributor>
+                            <credit-name>Pflug RR Ackerstaff VB</credit-name>
+                            <contributor-attributes>
+                                <contributor-sequence>additional</contributor-sequence>
+                                <contributor-role>author</contributor-role>
+                            </contributor-attributes>
+                        </contributor>
+                    </work-contributors>
+                </orcid-work>
+            </orcid-works>
+        </orcid-activities>
+    </orcid-profile>
+</orcid-message>
