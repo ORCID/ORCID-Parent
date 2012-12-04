@@ -3963,7 +3963,7 @@
                                  title="http://www.orcid.org/ns/orcid"
                                  onclick="updatePageTitle('Schema documentation for orcid-message-1.0.6.xsd')">orcid:given-names</a></b> , <b><a href="orcid-message-1_0_6_xsd.html#family-name" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
-                                 onclick="updatePageTitle('Schema documentation for orcid-message-1.0.6.xsd')">orcid:family-name</a></b> , <b><a href="orcid-message-1_0_6_xsd.html#credit-name" target="mainFrame"
+                                 onclick="updatePageTitle('Schema documentation for orcid-message-1.0.6.xsd')">orcid:family-name{0,1}</a></b> , <b><a href="orcid-message-1_0_6_xsd.html#credit-name" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
                                  onclick="updatePageTitle('Schema documentation for orcid-message-1.0.6.xsd')">orcid:credit-name{0,1}</a></b> , <b><a href="orcid-message-1_0_6_xsd.html#other-names" target="mainFrame"
                                  title="http://www.orcid.org/ns/orcid"
@@ -3995,7 +3995,7 @@
                                  <tr>
                                     <td width="100%"><pre><span class="tEl">&lt;orcid:personal-details</span><span class="tEl">&gt;</span><span class="tI">
   </span><span class="tEl">&lt;orcid:given-names</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/orcid:given-names&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;orcid:family-name</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/orcid:family-name&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;orcid:family-name</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/orcid:family-name&gt;</span><span class="tI">
   </span><span class="tEl">&lt;orcid:credit-name</span><span class="tT"> </span><span class="tAN">visibility=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/orcid:credit-name&gt;</span><span class="tI">
   </span><span class="tEl">&lt;orcid:other-names</span><span class="tT"> </span><span class="tAN">visibility=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/orcid:other-names&gt;</span><span class="tI">
 </span><span class="tEl">&lt;/orcid:personal-details&gt;</span></pre></td>
@@ -4023,7 +4023,7 @@
   </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
     </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"orcid:given-names"</span><span class="tAN"> minOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"orcid:family-name"</span><span class="tAN"> minOccurs=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"orcid:family-name"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"orcid:credit-name"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"orcid:other-names"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
     </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">

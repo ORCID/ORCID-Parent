@@ -261,7 +261,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="orcid:given-names" minOccurs="1"/>
-                <xs:element ref="orcid:family-name" minOccurs="1"/>
+                <xs:element ref="orcid:family-name" minOccurs="0"/>
                 <xs:element ref="orcid:credit-name" minOccurs="0"/>
                 <xs:element ref="orcid:other-names" minOccurs="0"/>
             </xs:sequence>
