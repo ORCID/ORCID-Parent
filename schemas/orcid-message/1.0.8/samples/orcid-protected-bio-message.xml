@@ -41,7 +41,7 @@
                 </other-names>
             </personal-details>
             <biography visibility="limited">
-                This is a sample message that is under 300 characters long. Were it to be any longer, this would not conform to the schema.
+                This is a sample message that is under 1000 characters long. Were it to be any longer, this would not conform to the schema.
             </biography>
             <researcher-urls visibility="public">
                 <researcher-url >
